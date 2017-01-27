@@ -1,0 +1,212 @@
+From 607d3f4f6611b64d32ea170c2b60177785eaf8e2 Mon Sep 17 00:00:00 2001
+From: Tres Finocchiaro <tres.finocchiaro@gmail.com>
+Date: Sat, 7 Jan 2017 01:45:50 -0500
+Subject: [PATCH] Simplify C++11 usage for plugins (#3214)
+
+Simplify C++11 usage for plugins
+---
+ plugins/CMakeLists.txt              |  7 +++++++
+ plugins/GigPlayer/CMakeLists.txt    |  7 -------
+ plugins/LadspaEffect/CMakeLists.txt |  3 +++
+ plugins/MidiExport/CMakeLists.txt   |  7 -------
+ plugins/VstEffect/CMakeLists.txt    |  7 -------
+ plugins/carlabase/CMakeLists.txt    |  3 ---
+ plugins/lb302/CMakeLists.txt        |  7 -------
+ plugins/opl2/CMakeLists.txt         |  7 ++-----
+ plugins/papu/CMakeLists.txt         |  3 +++
+ plugins/sf2_player/CMakeLists.txt   |  3 ---
+ plugins/vestige/CMakeLists.txt      |  7 -------
+ plugins/zynaddsubfx/CMakeLists.txt  | 12 ++++--------
+ 12 files changed, 19 insertions(+), 54 deletions(-)
+
+diff --git a/plugins/CMakeLists.txt b/plugins/CMakeLists.txt
+index e12b5f9..943c808 100644
+--- a/plugins/CMakeLists.txt
++++ b/plugins/CMakeLists.txt
+@@ -1,6 +1,13 @@
+ SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ 
++# Enable C++11
++ADD_DEFINITIONS(-std=c++0x)
++
++IF(LMMS_BUILD_APPLE)
++	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
++ENDIF()
++
+ INCLUDE_DIRECTORIES(
+ 	${SAMPLERATE_INCLUDE_DIRS}
+ )
+diff --git a/plugins/GigPlayer/CMakeLists.txt b/plugins/GigPlayer/CMakeLists.txt
+index 996444f..24db813 100644
+--- a/plugins/GigPlayer/CMakeLists.txt
++++ b/plugins/GigPlayer/CMakeLists.txt
+@@ -12,13 +12,6 @@ if(LMMS_HAVE_GIG)
+ 		add_definitions(${GCC_GIG_COMPILE_FLAGS})
+ 	endif(LMMS_BUILD_WIN32)
+ 
+-	# Enable C++11
+-	ADD_DEFINITIONS(-std=c++0x)
+-	
+-	IF(LMMS_BUILD_APPLE)
+-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-	ENDIF()
+-
+ 	LINK_DIRECTORIES(${GIG_LIBRARY_DIRS} ${SAMPLERATE_LIBRARY_DIRS})
+ 	LINK_LIBRARIES(${GIG_LIBRARIES} ${SAMPLERATE_LIBRARIES})
+ 	BUILD_PLUGIN(gigplayer GigPlayer.cpp GigPlayer.h PatchesDialog.cpp PatchesDialog.h PatchesDialog.ui MOCFILES GigPlayer.h PatchesDialog.h UICFILES PatchesDialog.ui EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+diff --git a/plugins/LadspaEffect/CMakeLists.txt b/plugins/LadspaEffect/CMakeLists.txt
+index 07d4cb0..8ab9685 100644
+--- a/plugins/LadspaEffect/CMakeLists.txt
++++ b/plugins/LadspaEffect/CMakeLists.txt
+@@ -1,5 +1,8 @@
+ INCLUDE(BuildPlugin)
+ 
++# Disable C++11
++REMOVE_DEFINITIONS(-std=c++0x)
++
+ BUILD_PLUGIN(ladspaeffect LadspaEffect.cpp LadspaControls.cpp LadspaControlDialog.cpp LadspaSubPluginFeatures.cpp LadspaEffect.h LadspaControls.h LadspaControlDialog.h LadspaSubPluginFeatures.h MOCFILES LadspaEffect.h LadspaControls.h LadspaControlDialog.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+ 
+ SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/ladspa")
+diff --git a/plugins/MidiExport/CMakeLists.txt b/plugins/MidiExport/CMakeLists.txt
+index 96c8254..1d19f08 100644
+--- a/plugins/MidiExport/CMakeLists.txt
++++ b/plugins/MidiExport/CMakeLists.txt
+@@ -1,11 +1,4 @@
+ INCLUDE(BuildPlugin)
+ 
+-# Enable C++11
+-ADD_DEFINITIONS(-std=c++0x)
+-
+-IF(LMMS_BUILD_APPLE)
+-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-ENDIF()
+-
+ BUILD_PLUGIN(midiexport MidiExport.cpp MidiExport.h MidiFile.hpp
+ 		MOCFILES MidiExport.h)
+diff --git a/plugins/VstEffect/CMakeLists.txt b/plugins/VstEffect/CMakeLists.txt
+index 223963f..4a1c031 100644
+--- a/plugins/VstEffect/CMakeLists.txt
++++ b/plugins/VstEffect/CMakeLists.txt
+@@ -10,13 +10,6 @@ ELSE()
+ 	SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${PLUGIN_DIR}")
+ ENDIF()
+ 
+-# Enable C++11
+-ADD_DEFINITIONS(-std=c++0x)
+-
+-IF(LMMS_BUILD_APPLE)
+-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-ENDIF()
+-
+ BUILD_PLUGIN(vsteffect VstEffect.cpp VstEffectControls.cpp VstEffectControlDialog.cpp VstSubPluginFeatures.cpp VstEffect.h VstEffectControls.h VstEffectControlDialog.h VstSubPluginFeatures.h MOCFILES VstEffectControlDialog.h VstEffectControls.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+ SET_TARGET_PROPERTIES(vsteffect PROPERTIES COMPILE_FLAGS "-Wno-attributes")
+ TARGET_LINK_LIBRARIES(vsteffect -lvstbase)
+diff --git a/plugins/carlabase/CMakeLists.txt b/plugins/carlabase/CMakeLists.txt
+index 90bc08a..8fdde2e 100644
+--- a/plugins/carlabase/CMakeLists.txt
++++ b/plugins/carlabase/CMakeLists.txt
+@@ -1,7 +1,4 @@
+ if(LMMS_HAVE_CARLA)
+-        # Enable C++11
+-        ADD_DEFINITIONS(-std=c++0x)
+-
+         INCLUDE(BuildPlugin)
+         INCLUDE_DIRECTORIES(${CARLA_INCLUDE_DIRS})
+         LINK_DIRECTORIES(${CARLA_LIBRARY_DIRS})
+diff --git a/plugins/lb302/CMakeLists.txt b/plugins/lb302/CMakeLists.txt
+index 384f4ea..c9389eb 100644
+--- a/plugins/lb302/CMakeLists.txt
++++ b/plugins/lb302/CMakeLists.txt
+@@ -1,10 +1,3 @@
+ INCLUDE(BuildPlugin)
+ 
+-# Enable C++11
+-ADD_DEFINITIONS(-std=c++0x)
+-
+-IF(LMMS_BUILD_APPLE)
+-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-ENDIF()
+-
+ BUILD_PLUGIN(lb302 lb302.cpp lb302.h MOCFILES lb302.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+diff --git a/plugins/opl2/CMakeLists.txt b/plugins/opl2/CMakeLists.txt
+index 9e9bd91..a62eee5 100644
+--- a/plugins/opl2/CMakeLists.txt
++++ b/plugins/opl2/CMakeLists.txt
+@@ -1,10 +1,7 @@
+ INCLUDE(BuildPlugin)
+ 
+-# Enable C++11
++# Enable C++11 for CXXFLAGS only
++REMOVE_DEFINITIONS(-std=c++0x)
+ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+ 
+-IF(LMMS_BUILD_APPLE)
+-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-ENDIF()
+-
+ BUILD_PLUGIN(OPL2 opl2instrument.cpp opl2instrument.h opl.h fmopl.c fmopl.h temuopl.cpp temuopl.h MOCFILES opl2instrument.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+diff --git a/plugins/papu/CMakeLists.txt b/plugins/papu/CMakeLists.txt
+index 30ae0aa..8662a1c 100644
+--- a/plugins/papu/CMakeLists.txt
++++ b/plugins/papu/CMakeLists.txt
+@@ -1,3 +1,6 @@
+ INCLUDE(BuildPlugin)
+ 
++# Disable C++11
++REMOVE_DEFINITIONS(-std=c++0x)
++
+ BUILD_PLUGIN(papu papu_instrument.cpp papu_instrument.h Basic_Gb_Apu.cpp Basic_Gb_Apu.h gb_apu/Gb_Oscs.cpp gb_apu/Gb_Apu.h gb_apu/Blip_Buffer.cpp gb_apu/Gb_Apu.cpp gb_apu/Gb_Oscs.h gb_apu/blargg_common.h gb_apu/Blip_Buffer.h gb_apu/Multi_Buffer.cpp gb_apu/blargg_source.h gb_apu/Blip_Synth.h gb_apu/Multi_Buffer.h MOCFILES papu_instrument.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png")
+diff --git a/plugins/sf2_player/CMakeLists.txt b/plugins/sf2_player/CMakeLists.txt
+index 51b8e29..d087f43 100644
+--- a/plugins/sf2_player/CMakeLists.txt
++++ b/plugins/sf2_player/CMakeLists.txt
+@@ -1,7 +1,4 @@
+ if(LMMS_HAVE_FLUIDSYNTH)
+-	# Enable C++11
+-	ADD_DEFINITIONS(-std=c++0x)
+-
+ 	INCLUDE(BuildPlugin)
+ 	INCLUDE_DIRECTORIES(${FLUIDSYNTH_INCLUDE_DIRS} ${SAMPLERATE_INCLUDE_DIRS})
+ 	LINK_DIRECTORIES(${FLUIDSYNTH_LIBRARY_DIRS} ${SAMPLERATE_LIBRARY_DIRS})
+diff --git a/plugins/vestige/CMakeLists.txt b/plugins/vestige/CMakeLists.txt
+index 58008fe..21803a9 100644
+--- a/plugins/vestige/CMakeLists.txt
++++ b/plugins/vestige/CMakeLists.txt
+@@ -1,11 +1,4 @@
+ IF(LMMS_SUPPORT_VST)
+-   # Enable C++11
+-   ADD_DEFINITIONS(-std=c++0x)
+-   
+-   IF(LMMS_BUILD_APPLE)
+-      SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-   ENDIF()
+-
+    INCLUDE(BuildPlugin)
+    INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/../vst_base")
+    LINK_DIRECTORIES("${CMAKE_CURRENT_BINARY_DIR}/..")
+diff --git a/plugins/zynaddsubfx/CMakeLists.txt b/plugins/zynaddsubfx/CMakeLists.txt
+index 2b12699..541b8cf 100644
+--- a/plugins/zynaddsubfx/CMakeLists.txt
++++ b/plugins/zynaddsubfx/CMakeLists.txt
+@@ -21,16 +21,12 @@ ENDIF(LMMS_HOST_X86 OR LMMS_HOST_X86_64)
+ # build ZynAddSubFX with full optimizations
+ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wno-write-strings -Wno-deprecated-declarations -fpermissive")
+ 
+-# Enable C++11, but only for ZynAddSubFx.cpp
+-set_property(SOURCE ZynAddSubFx.cpp APPEND_STRING PROPERTY COMPILE_FLAGS " -std=c++0x ")
+-	
+-IF(LMMS_BUILD_APPLE)
+-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-ENDIF()
+-
+-# link system-libraries when on win32
+ IF(LMMS_BUILD_WIN32)
++	# link system-libraries
+ 	ADD_DEFINITIONS(-DPTW32_STATIC_LIB)
++	# fix X11 headers errors caused by bug with mingw + c++11
++	REMOVE_DEFINITIONS(-std=c++0x)
++	ADD_DEFINITIONS(-std=gnu++0x) 
+ ENDIF(LMMS_BUILD_WIN32)
+ 
+ SET(FLTK_SKIP_OPENGL TRUE)
