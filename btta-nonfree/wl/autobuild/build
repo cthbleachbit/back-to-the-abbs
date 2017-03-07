@@ -1,0 +1,11 @@
+local dest="${PKGDIR}/usr/src/broadcom-wl-${PKGVER}"
+mkdir -p "${dest}"
+cp -a src Makefile dkms.conf "${dest}"
+install -Dm 644 -t "${dest}/patches" *.patch
+install -D -m 0644 lib/wlc_hybrid.o_shipped "${PKGDIR}/usr/lib/broadcom-wl-dkms/wlc_hybrid.o_shipped"
+install -D -m 0644 broadcom-wl-dkms.conf "${PKGDIR}/usr/lib/modprobe.d/broadcom-wl-dkms.conf"
+
+local ldir="${PKGDIR}/usr/share/licenses/broadcom-wl"
+mkdir -p "${ldir}"
+install -D -m 0644 lib/LICENSE.txt "${ldir}/LICENSE.shipped"
+sed -n -e '/Copyright/,/SOFTWARE\./{s/^ \* //;p}' src/wl/sys/wl_linux.c > "${ldir}/LICENSE.module"
