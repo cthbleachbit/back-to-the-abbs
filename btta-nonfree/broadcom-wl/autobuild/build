@@ -1,7 +1,7 @@
 local dest="${PKGDIR}/usr/src/broadcom-wl-${PKGVER}"
 mkdir -vp "${dest}"
 cp -va src Makefile dkms.conf "${dest}"
-install -D -m 0644 lib/wlc_hybrid.o_shipped "${PKGDIR}/usr/lib/broadcom-wl-dkms/wlc_hybrid.o_shipped"
+install -D -m 0644 lib/wlc_hybrid.o_shipped "${PKGDIR}/usr/lib/broadcom-wl/wlc_hybrid.o_shipped"
 
 local ldir="${PKGDIR}/usr/share/licenses/broadcom-wl"
 mkdir -vp "${ldir}"
