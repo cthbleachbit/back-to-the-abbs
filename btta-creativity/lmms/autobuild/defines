@@ -1,6 +1,6 @@
 PKGNAME=lmms
 PKGSEC=sound
-PKGDES="The Linux MultiMedia Studio"
+PKGDES="The Linux MultiMedia Studio w drumstick"
 PKGDEP="qt-5 sdl-sound jack libsamplerate fluidsynth portaudio x11-lib \
         shared-mime-info hicolor-icon-theme desktop-file-utils libgig alsa-lib \
         libpng pulseaudio glib libsoundio stk drumstick"
@@ -18,4 +18,5 @@ if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
     CMAKE_AFTER+=" -DWINE_LIBRARY:FILEPATH=/usr/lib/wine64"
 fi
 
+PKGEPOCH=2
 NOLTO=1

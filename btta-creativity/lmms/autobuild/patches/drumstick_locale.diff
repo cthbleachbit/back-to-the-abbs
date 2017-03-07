@@ -1,0 +1,31 @@
+diff --git a/data/locale/en.ts b/data/locale/en.ts
+index 400ed17c9..e60a19c51 100644
+--- a/data/locale/en.ts
++++ b/data/locale/en.ts
+@@ -6361,5 +6361,26 @@
+         <source>Select file for project-export...</source>
+         <translation type="unfinished"></translation>
+     </message>
++     <message>
++        <location filename="src/core/Song.cpp" line="1332"/>
++        <source>Save project</source>
++        <translation type="unfinished"></translation>
++    </message>
++    <message>
++        <location filename="src/core/Song.cpp" line="1357"/>
++        <source>Hint of MIDI export</source>
++        <translation type="unfinished"></translation>
++    </message>
++    <message>
++        <location filename="src/core/Song.cpp" line="1358"/>
++        <source>To export midi from LMMS, Please ensure the following things.
++
++1. Instrument of tracks to export should be set to Sf2 Player.
++2. Bassline or Beats will not be exported.
++3. 16 tracks or less will be better.
++
++Continue?</source>
++         <translation type="unfinished"></translation>
++     </message>
+     <message>
+         <source>The following errors occured while loading: </source>
