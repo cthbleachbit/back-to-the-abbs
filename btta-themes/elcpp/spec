@@ -1,0 +1,4 @@
+VER=20170506
+GITSRC="https://github.com/cthbleachbit/EarthLiveCPP"
+GITCO="05ab4740067fc2aa6a08f3dd25c91245ca333c8a"
+SUBDIR=elcpp/src
