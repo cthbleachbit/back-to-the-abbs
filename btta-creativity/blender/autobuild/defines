@@ -1,0 +1,34 @@
+PKGNAME=blender
+PKGSEC=graphics
+PKGDEP="boost desktop-file-utils ffmpeg fftw freetype glew \
+        hicolor-icon-theme jack jemalloc libpng libsndfile libspnav libtiff \
+        openal-soft opencollada opencolorio openexr openimageio \
+        openjpeg-legacy opensubdiv libraw opencv numpy libxdg-basedir \
+        ptex requests shared-mime-info xdg-utils"
+BUILDDEP="cmake"
+PKGDES="A fully integrated 3D graphics creation suite"
+
+# FIXME: LLVM 3.6 support non-existence.
+CMAKE_AFTER="-C../build_files/cmake/config/blender_full.cmake .. \
+             -DWITH_INSTALL_PORTABLE=OFF \
+             -DPYTHON_VERSION=3.6 \
+             -DPYTHON_LIBPATH=/usr/lib \
+             -DPYTHON_LIBRARY=python3.6m \
+             -DPYTHON_INCLUDE_DIRS=/usr/include/python3.6m \
+             -DWITH_LLVM=OFF \
+             -DWITH_SYSTEM_OPENJPEG=ON \
+             -DWITH_GL_PROFILE_CORE=OFF \
+             -DWITH_GL_PROFILE_ES20=OFF \
+             -DWITH_CYCLES=ON \
+             -DWITH_OPENSUBDIV=ON \
+             -DWITH_INTERNATIONAL=ON \
+             -DWITH_OPENIMAGEIO=ON \
+             -DWITH_PLAYER=ON \
+             -DWITH_MEM_JEMALLOC=ON"
+if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
+    BUILDDEP+=" cuda"
+    CMAKE_AFTER+=" -DWITH_CYCLES_CUDA_BINARIES=ON"
+fi
+ABSTRIP=no
+
+AB_FLAGS_O3=1

@@ -1,0 +1,3 @@
+VER=2.8.daily20170710
+GITSRC="git://git.blender.org/blender.git"
+GITCO="heads/blender2.8"
