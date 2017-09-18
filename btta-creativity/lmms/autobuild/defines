@@ -5,7 +5,7 @@ PKGDEP="qt-5 sdl-sound jack libsamplerate fluidsynth portaudio x11-lib \
         shared-mime-info hicolor-icon-theme desktop-file-utils libgig alsa-lib \
         libpng pulseaudio glib libsoundio stk drumstick"
 BUILDDEP="git cmake ladspa-sdk raptor2 rasqal x11-lib freetype redland gcc-runtime \
-          chrpath zynaddsubfx"
+          zynaddsubfx"
 if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
     BUILDDEP+=" wine"
 fi

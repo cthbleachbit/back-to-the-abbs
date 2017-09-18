@@ -2,5 +2,5 @@ sed -i 's|lib64|lib|g' cmake/modules/DetectMachine.cmake
 sed -i 's/MODULE/SHARED/g' cmake/modules/BuildPlugin.cmake #for workaround VST bugs
 
 for patch in `ls $SRCDIR/autobuild/patches`; do
-	patch -Np1 -i $patch
+	patch -Np1 -i $SRCDIR/autobuild/patches/$patch
 done

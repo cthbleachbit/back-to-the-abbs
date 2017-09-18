@@ -1,2 +1,2 @@
-chrpath -r /usr/lib/wine64 "$PKGDIR"/usr/lib/lmms/RemoteVstPlugin.exe.so
-chrpath -d "$PKGDIR"/usr/bin/lmms
+#chrpath -r /usr/lib/wine64 "$PKGDIR"/usr/lib/lmms/RemoteVstPlugin.exe.so
+#chrpath -d "$PKGDIR"/usr/bin/lmms
