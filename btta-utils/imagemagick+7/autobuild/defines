@@ -2,10 +2,6 @@ PKGNAME=imagemagick+7
 PKGSEC=utils
 PKGDEP="libtool lcms2 fontconfig ghostscript openexr libwmf librsvg libxml2 \
         liblqr openjpeg perl libxml2 libwebp djvulibre fftw"
-if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
-	PKGDEP+=" libcl"
-	BUILDDEP+=" opencl-registry-api"
-fi
 PKGDES="An image viewing and manipulation program (version 7)"
 
 ABSHADOW=no
@@ -15,9 +11,6 @@ AUTOTOOLS_AFTER="--with-modules --program-suffix=-7 \
                  --with-lqr --with-rsvg \
                  --with-openjp2 --without-gvc --with-djvu --without-autotrace \
                  --without-jbig --without-fpx --without-dps --with-fftw LIBS=-ldl"
-if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
-	AUTOTOOLS_AFTER+=" --enable-opencl"
-fi
 
 NOLIBTOOL=no
 RECONF=no
