@@ -22,6 +22,9 @@ CMAKE_AFTER="-C../build_files/cmake/config/blender_full.cmake .. \
              -DWITH_CYCLES=ON \
              -DWITH_OPENSUBDIV=ON \
              -DWITH_INTERNATIONAL=ON \
+             -DWITH_PYTHON_INSTALL=OFF \
+             -DWITH_PYTHON_INSTALL_NUMPY=OFF \
+             -DWITH_PYTHON_INSTALL_REQUESTS=OFF \
              -DWITH_OPENIMAGEIO=ON \
              -DWITH_PLAYER=ON \
              -DWITH_MEM_JEMALLOC=ON"
@@ -30,5 +33,3 @@ if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
     CMAKE_AFTER+=" -DWITH_CYCLES_CUDA_BINARIES=ON"
 fi
 ABSTRIP=no
-
-AB_FLAGS_O3=1
