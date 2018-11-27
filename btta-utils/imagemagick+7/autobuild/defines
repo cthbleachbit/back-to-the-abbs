@@ -16,7 +16,7 @@ NOLIBTOOL=no
 RECONF=no
 
 # FIXME: FTBFS with LTO.
-NOLTO=yes
+NOLTO=no
 
 AB_FLAGS_O3=1
 
