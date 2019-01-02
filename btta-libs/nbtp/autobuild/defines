@@ -1,0 +1,5 @@
+PKGNAME=nbtp
+PKGSEC=libs
+PKGDES="NBT Parser Library in C"
+PKGDEP="glibc"
+
