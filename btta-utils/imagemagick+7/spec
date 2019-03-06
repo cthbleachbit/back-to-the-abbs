@@ -1,2 +1,2 @@
-VER=7.0.8+25
+VER=7.0.8+32
 SRCTBL="http://www.imagemagick.org/download/releases/ImageMagick-${VER/+/-}.tar.xz"
