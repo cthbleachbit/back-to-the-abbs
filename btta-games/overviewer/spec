@@ -1,0 +1,2 @@
+VER=0.13.90
+SRCTBL="http://overviewer.org/builds/src/131/overviewer-${VER}.tar.gz"
