@@ -18,7 +18,7 @@ AOSC OS stores apt repo information in a similar way as may other distros in `/e
 deb https://static.cth451.me/btta $STREAM main
 ```
 
-Ask `apt-key` to trust the signing key of btta with this command:
+Ask `apt-key` to trust the signing key of btta with the following command. This public key should carry a signature from my main GPG key.
 
 ```
 curl https://static.cth451.me/btta/pubkey/btta.pub | apt-key --keyring /etc/apt/trusted.gpg.d/btta.gpg add -
