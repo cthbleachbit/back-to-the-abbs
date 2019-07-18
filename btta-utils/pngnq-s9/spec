@@ -1,0 +1,3 @@
+VER=2.0.2
+SRCTBL="https://datapacket.dl.sourceforge.net/project/pngnqs9/pngnq-s9-${VER}.tar.gz"
+CHKSUM="sha256::8767dec663f9c8223e8bfad5439f3456bf5037bc702c9b1e783380fae63b4367"

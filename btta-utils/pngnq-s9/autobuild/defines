@@ -1,0 +1,4 @@
+PKGNAME=pngnq-s9
+PKGSEC=utils
+PKGDEP="libpng zlib"
+PKGDES="Tool to convert png images to 256 colours"
