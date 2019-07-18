@@ -1,6 +1,6 @@
 PKGNAME=overviewer
 PKGSEC=utils
-PKGDEP="pillow numpy"
+PKGDEP="pillow numpy pngnq-s9"
 PKGDES="high-resolution Minecraft world renderer"
 
-NOPYTHON3=yes
+NOPYTHON2=1
