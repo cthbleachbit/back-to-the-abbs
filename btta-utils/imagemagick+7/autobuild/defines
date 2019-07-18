@@ -16,8 +16,6 @@ NOLIBTOOL=no
 RECONF=no
 
 # FIXME: FTBFS with LTO.
-NOLTO=no
-
 AB_FLAGS_O3=1
 
 PKGBREAK="a2ps<=4.14-2 caja-extensions<=1.18.1 calibre<=3.2.1 \
