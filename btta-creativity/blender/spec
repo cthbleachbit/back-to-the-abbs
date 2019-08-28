@@ -1,3 +1,3 @@
-VER=2.80~daily20190717
+VER=2.81~daily20190828
 GITSRC="git://git.blender.org/blender.git"
-GITCO="526272bf7ca060f8a7a48fe722a027c8035982cf"
+GITCO="f88022b96f3a0522b6a2e3a7f441f43ec7becff9"
