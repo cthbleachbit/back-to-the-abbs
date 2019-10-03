@@ -20,6 +20,7 @@ CMAKE_AFTER="-C../build_files/cmake/config/blender_full.cmake .. \
              -DWITH_SYSTEM_OPENJPEG=ON \
              -DWITH_GL_PROFILE_CORE=OFF \
              -DWITH_GL_PROFILE_ES20=OFF \
+             -DWITH_CYCLES_DEVICE_OPTIX=ON \
              -DWITH_CYCLES=ON \
              -DWITH_OPENSUBDIV=ON \
              -DWITH_INTERNATIONAL=ON \
