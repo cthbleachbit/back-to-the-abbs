@@ -1,3 +1,5 @@
-VER=0.14.72
-SRCTBL="http://overviewer.org/builds/src/46/overviewer-${VER}.tar.gz"
-CHKSUM="sha256::34ef94a007799b6e3b1ada47fc0a13345677d82c84a830abc7359eeb4e4ff706"
+_MAJ_MIN=0.14
+_PATCH=85
+VER=${_MAJ_MIN}.${_PATCH}
+SRCTBL="http://overviewer.org/builds/src/84/overviewer-${VER}.tar.gz"
+CHKSUM="sha256::bf2fb997c718ff2a9e54283f580e310af8bd2202f0e834319dafecb32c3dfc4a"
