@@ -1,0 +1,8 @@
+pushd $SRCDIR
+
+cargo build --release
+
+mkdir -p $PKGDIR/usr/bin
+cp -v target/release/launcher-rs $PKGDIR/usr/bin/edlaunch-rs
+
+popd
