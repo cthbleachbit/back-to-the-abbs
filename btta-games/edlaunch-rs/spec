@@ -1,3 +1,3 @@
-VER=0.2.5
+VER=0.2.6
 GITSRC="https://gitlab.com/liushuyu/edlaunch-rs.git"
 GITCO="tags/v${VER}"
