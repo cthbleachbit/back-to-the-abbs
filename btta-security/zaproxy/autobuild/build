@@ -1,0 +1,8 @@
+pushd $SRCDIR
+
+install -d "${PKGDIR}/usr/share/zaproxy"
+for i in README lib xml zap.sh license zap-2.9.0.jar db plugin lang scripts zap.ico; do
+	cp -vpR $i "${PKGDIR}/usr/share/zaproxy"
+done
+
+popd

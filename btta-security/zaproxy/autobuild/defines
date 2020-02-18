@@ -1,0 +1,4 @@
+PKGNAME=zaproxy
+PKGSEC=security
+PKGDEP="openjdk"
+PKGDES="Integrated penetration testing tool for finding vulnerabilities in web applications"

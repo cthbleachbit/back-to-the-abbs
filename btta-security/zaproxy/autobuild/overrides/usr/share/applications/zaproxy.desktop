@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Zaproxy
+Type=Application
+Comment=Integrated Web Penetration Testing Toolkit
+Exec=/usr/bin/zaproxy
+Icon=zaproxy
+StartupWMClass=OWASP ZAP
