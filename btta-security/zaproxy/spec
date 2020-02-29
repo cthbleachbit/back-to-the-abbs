@@ -1,3 +1,4 @@
 VER=2.9.0
-SRCTBL="https://github.com/zaproxy/zaproxy/releases/download/v${VER}/ZAP_${VER}_Linux.tar.gz"
-CHKSUM="sha256::4c72ba9d9ba60f58dc7eb26c5818cf98a38ba58b9bf2313aadd69832d85e9cb1"
+REL=1
+SRCTBL="https://github.com/zaproxy/zaproxy/archive/v${VER}.tar.gz"
+CHKSUM="sha256::1a25cabb9b18b58c4c504a4bc60211a8e2c1bab3bbe05b65ab8d0e8d8841369f"
