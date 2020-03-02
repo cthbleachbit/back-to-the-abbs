@@ -1,5 +1,5 @@
 PKGNAME=edlaunch-rs
 PKGSEC=games
-PKGDEP="glibc wine libuv samba"
-BUILDDEP="rust-base"
+PKGDEP="glibc wine libuv samba dbus"
+BUILDDEP="rust-base libsecret"
 PKGDES="A third-party implementation of the official Elite: Dangerous (TM) launcher"
