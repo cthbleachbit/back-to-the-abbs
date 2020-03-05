@@ -1,0 +1,6 @@
+PKGNAME=btta
+PKGSEC=utils
+PKGDEP=apt
+PKGDES="Back-to-the-ABBS apt source configuration"
+
+ABHOST=noarch

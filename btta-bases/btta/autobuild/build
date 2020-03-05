@@ -1,0 +1,3 @@
+mkdir -p "$PKGDIR/etc/apt/trusted.gpg.d"
+apt-key --keyring "$PKGDIR/etc/apt/trusted.gpg.d/btta.gpg" add - < ${SRCDIR}/autobuild/btta.pub
+rm -f "$PKGDIR/etc/apt/trusted.gpg.d/btta.gpg~"
