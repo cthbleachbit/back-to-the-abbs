@@ -1,5 +1,5 @@
-_MAJ_MIN=0.14
-_PATCH=85
+_MAJ_MIN=0.15
+_PATCH=0
 VER=${_MAJ_MIN}.${_PATCH}
 SRCTBL="http://overviewer.org/builds/src/84/overviewer-${VER}.tar.gz"
 CHKSUM="sha256::bf2fb997c718ff2a9e54283f580e310af8bd2202f0e834319dafecb32c3dfc4a"
