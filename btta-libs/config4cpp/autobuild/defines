@@ -1,0 +1,4 @@
+PKGNAME=config4cpp
+PKGSEC=libs
+PKGDES="Library for parsing config files"
+PKGDEP="glibc"

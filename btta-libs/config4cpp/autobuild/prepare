@@ -1,0 +1,4 @@
+set +e
+
+export CXXFLAGS="${CXXFLAGS} -std=gnu++98 -fPIC"
+export CXX_FLAGS="${CXXFLAGS}"
