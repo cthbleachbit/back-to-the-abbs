@@ -1,3 +1,4 @@
 VER=1.1
+REL=1
 SRCTBL="http://www.config4star.org/download/config4cpp.tar.gz"
 CHKSUM="sha256::74000384130097a2478dde56e4eb49c756f034b37da94826e5c58a37c6a06def"
