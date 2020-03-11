@@ -1,0 +1,341 @@
+From a8eadb0ffd3bcd766146689c093233cce0cde5ca Mon Sep 17 00:00:00 2001
+From: James Chai <cth451@gmail.com>
+Date: Tue, 10 Mar 2020 15:44:16 -0500
+Subject: [PATCH] Add CMake Integration
+
+---
+ .gitignore                                    |  4 +
+ CMakeLists.txt                                | 37 +++++++
+ README.txt                                    |  6 ++
+ demos/CMakeLists.txt                          | 11 +++
+ demos/encapsulate-lookup-api/CMakeLists.txt   | 11 +++
+ .../extended-schema-validator/CMakeLists.txt  |  2 +
+ demos/log-level/CMakeLists.txt                |  8 ++
+ demos/recipes/CMakeLists.txt                  |  4 +
+ demos/simple-encapsulation/CMakeLists.txt     | 11 +++
+ pkgconfig/CMakeLists.txt                      |  5 +
+ pkgconfig/config4cpp.pc.in                    | 12 +++
+ src/CMakeLists.txt                            | 99 +++++++++++++++++++
+ tests/schema-types/CMakeLists.txt             |  9 ++
+ 13 files changed, 219 insertions(+)
+ create mode 100644 CMakeLists.txt
+ create mode 100644 demos/CMakeLists.txt
+ create mode 100644 demos/encapsulate-lookup-api/CMakeLists.txt
+ create mode 100644 demos/extended-schema-validator/CMakeLists.txt
+ create mode 100644 demos/log-level/CMakeLists.txt
+ create mode 100644 demos/recipes/CMakeLists.txt
+ create mode 100644 demos/simple-encapsulation/CMakeLists.txt
+ create mode 100644 pkgconfig/CMakeLists.txt
+ create mode 100644 pkgconfig/config4cpp.pc.in
+ create mode 100644 src/CMakeLists.txt
+ create mode 100644 tests/schema-types/CMakeLists.txt
+
+diff --git a/.gitignore b/.gitignore
+index 8df9393..e8ec569 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -10,3 +10,7 @@
+ *.lai
+ *.la
+ *.a
++
++# CMake generated
++CMakeCache.txt
++CMakeFiles
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..f0bf8dd
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,37 @@
++cmake_minimum_required (VERSION 3.0)
++set(CONFIG4CPP_VERSION_MAJOR 1)
++set(CONFIG4CPP_VERSION_MINOR 1)
++project(CONFIG4CPP
++	VERSION ${CONFIG4CPP_VERSION_MAJOR}.${CONFIG4CPP_VERSION_MINOR}
++)
++include(GNUInstallDirs)
++
++# Shadow build enforced to not overwrite existing Makefiles
++if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
++	message(FATAL_ERROR "Shadow build is required. Please create a separate build directory and run 'cmake /path/to/config4cpp/source' there.")
++endif()
++
++# Build options
++option(BUILD_TESTS "Build tests" ON)
++option(BUILD_DEMOS "Build demos" OFF)
++option(BUILD_STATIC "Build a copy of statically compiled library" OFF)
++
++# Compiler options
++set(CMAKE_CXX_STANDARD 98)
++include_directories(include)
++
++# Library and binary sources
++add_subdirectory(src)
++
++if (BUILD_TESTS)
++	enable_testing()
++	# Tests
++	add_subdirectory(tests/schema-types)
++endif()
++
++if (BUILD_DEMOS)
++	add_subdirectory(demos)
++endif()
++
++# pkgconfig for apps that uses this library
++add_subdirectory(pkgconfig)
+diff --git a/README.txt b/README.txt
+index 073255c..be92600 100644
+--- a/README.txt
++++ b/README.txt
+@@ -14,8 +14,14 @@ G++, and (3) Windows with Visual C++ 6.0.
+ 
+ To build on Linux or Cygwin, run the following commands:
+ 
++	mkdir build; cd build
++	cmake ..
+ 	make
+ 
++Pass CMAKE_INSTALL_PREFIX to cmake during configure to set installation
++prefix. Binaries will be installed to $PREFIX/bin, libraries to $PREFIX/lib
++respectively.
++
+ To build on Windows with Visual C++, run the following commands:
+ 
+ 	vcvars32.bat
+diff --git a/demos/CMakeLists.txt b/demos/CMakeLists.txt
+new file mode 100644
+index 0000000..c60f00d
+--- /dev/null
++++ b/demos/CMakeLists.txt
+@@ -0,0 +1,11 @@
++set(DEMOS_LIST
++	encapsulate-lookup-api
++	extended-schema-validator
++	log-level
++	recipes
++	simple-encapsulation
++)
++
++foreach(DEMO ${DEMOS_LIST})
++	add_subdirectory(${DEMO})
++endforeach(DEMO)
+diff --git a/demos/encapsulate-lookup-api/CMakeLists.txt b/demos/encapsulate-lookup-api/CMakeLists.txt
+new file mode 100644
+index 0000000..19b0717
+--- /dev/null
++++ b/demos/encapsulate-lookup-api/CMakeLists.txt
+@@ -0,0 +1,11 @@
++add_custom_command(OUTPUT FallbackConfiguration.cpp FallbackConfiguration.h
++	COMMAND config2cpp-exe -cfg ${CMAKE_CURRENT_SOURCE_DIR}/FallbackConfiguration.cfg -class FallbackConfiguration -singleton
++	DEPENDS config2cpp-exe FallbackConfiguration.cfg
++)
++add_executable(demo-encapsulate-lookup-api
++	FooConfiguration.cpp
++	${CMAKE_CURRENT_BINARY_DIR}/FallbackConfiguration.cpp
++	main.cpp
++)
++target_include_directories(demo-encapsulate-lookup-api PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
++target_link_libraries(demo-encapsulate-lookup-api PUBLIC config4cpp)
+diff --git a/demos/extended-schema-validator/CMakeLists.txt b/demos/extended-schema-validator/CMakeLists.txt
+new file mode 100644
+index 0000000..2b801bd
+--- /dev/null
++++ b/demos/extended-schema-validator/CMakeLists.txt
+@@ -0,0 +1,2 @@
++add_executable(demo-extended-schema-validator FooConfiguration.cpp SchemaTypeHex.cpp main.cpp)
++target_link_libraries(demo-extended-schema-validator PUBLIC config4cpp)
+diff --git a/demos/log-level/CMakeLists.txt b/demos/log-level/CMakeLists.txt
+new file mode 100644
+index 0000000..7174512
+--- /dev/null
++++ b/demos/log-level/CMakeLists.txt
+@@ -0,0 +1,8 @@
++add_executable(demo-log-level
++	FooConfiguration.cpp
++	Logger.cpp
++	A.cpp
++	B.cpp
++	main.cpp
++)
++target_link_libraries(demo-log-level PUBLIC config4cpp)
+diff --git a/demos/recipes/CMakeLists.txt b/demos/recipes/CMakeLists.txt
+new file mode 100644
+index 0000000..72aec85
+--- /dev/null
++++ b/demos/recipes/CMakeLists.txt
+@@ -0,0 +1,4 @@
++add_executable(demo-recipe
++	RecipeFileParser.cpp main.cpp
++)
++target_link_libraries(demo-recipe PUBLIC config4cpp)
+diff --git a/demos/simple-encapsulation/CMakeLists.txt b/demos/simple-encapsulation/CMakeLists.txt
+new file mode 100644
+index 0000000..bcdd7b1
+--- /dev/null
++++ b/demos/simple-encapsulation/CMakeLists.txt
+@@ -0,0 +1,11 @@
++add_custom_command(OUTPUT FallbackConfiguration.cpp
++	COMMAND config2cpp-exe -cfg ${CMAKE_CURRENT_SOURCE_DIR}/FallbackConfiguration.cfg -class FallbackConfiguration -singleton
++	DEPENDS config2cpp-exe FallbackConfiguration.cfg
++)
++add_executable(demo-simple-encapsulation
++	FooConfiguration.cpp
++	${CMAKE_CURRENT_BINARY_DIR}/FallbackConfiguration.cpp
++	main.cpp
++)
++target_include_directories(demo-simple-encapsulation PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
++target_link_libraries(demo-simple-encapsulation PUBLIC config4cpp)
+diff --git a/pkgconfig/CMakeLists.txt b/pkgconfig/CMakeLists.txt
+new file mode 100644
+index 0000000..e945cd7
+--- /dev/null
++++ b/pkgconfig/CMakeLists.txt
+@@ -0,0 +1,5 @@
++configure_file(config4cpp.pc.in config4cpp.pc @ONLY)
++install(
++	FILES ${CMAKE_CURRENT_BINARY_DIR}/config4cpp.pc
++	DESTINATION lib/pkgconfig
++)
+diff --git a/pkgconfig/config4cpp.pc.in b/pkgconfig/config4cpp.pc.in
+new file mode 100644
+index 0000000..fc84044
+--- /dev/null
++++ b/pkgconfig/config4cpp.pc.in
+@@ -0,0 +1,12 @@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=@CMAKE_INSTALL_PREFIX@
++libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@/config4cpp
++
++Name: @PROJECT_NAME@
++Description: @PROJECT_DESCRIPTION@
++Version: @PROJECT_VERSION@
++
++Requires:
++Libs: -L${libdir} -lconfig4cpp
++Cflags: -I${includedir}
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+new file mode 100644
+index 0000000..2224847
+--- /dev/null
++++ b/src/CMakeLists.txt
+@@ -0,0 +1,99 @@
++add_executable(config2cpp-nocheck-exe
++	config2cpp-nocheck-main.cpp
++	Config2Cpp.cpp
++)
++set_target_properties(config2cpp-nocheck-exe
++	PROPERTIES OUTPUT_NAME config2cpp-nocheck
++)
++
++add_custom_command(
++	OUTPUT DefaultSecurity.cpp DefaultSecurity.h
++	COMMAND ${CMAKE_CURRENT_BINARY_DIR}/config2cpp-nocheck -cfg ${CMAKE_CURRENT_SOURCE_DIR}/DefaultSecurity.cfg -class DefaultSecurity -namespace CONFIG4CPP_NAMESPACE
++	DEPENDS config2cpp-nocheck-exe
++	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
++)
++
++set(LIB_SOURCES
++	SchemaLex.cpp
++	SchemaParser.cpp
++	MBChar.cpp
++	SchemaValidator.cpp
++	platform.cpp
++	util.cpp
++	Configuration.cpp
++	${CMAKE_CURRENT_BINARY_DIR}/DefaultSecurity.cpp
++	DefaultSecurityConfiguration.cpp
++	ConfigurationException.cpp
++	ConfigurationImpl.cpp
++	ConfigParser.cpp
++	UidIdentifierProcessor.cpp
++	ConfigScope.cpp
++	ConfigScopeEntry.cpp
++	ConfigItem.cpp
++	LexToken.cpp
++	LexBase.cpp
++	ConfigLex.cpp
++	StringBuffer.cpp
++	StringVector.cpp
++	SchemaType.cpp
++	SchemaTypeBoolean.cpp
++	SchemaTypeDurationMicroseconds.cpp
++	SchemaTypeDurationMilliseconds.cpp
++	SchemaTypeDurationSeconds.cpp
++	SchemaTypeEnum.cpp
++	SchemaTypeFloat.cpp
++	SchemaTypeFloatWithUnits.cpp
++	SchemaTypeInt.cpp
++	SchemaTypeIntWithUnits.cpp
++	SchemaTypeMemorySizeBytes.cpp
++	SchemaTypeMemorySizeKB.cpp
++	SchemaTypeMemorySizeMB.cpp
++	SchemaTypeScope.cpp
++	SchemaTypeString.cpp
++	SchemaTypeUnitsWithFloat.cpp
++	SchemaTypeUnitsWithInt.cpp
++	SchemaTypeList.cpp
++	SchemaTypeTable.cpp
++	SchemaTypeTuple.cpp
++	SchemaTypeTypedef.cpp
++)
++
++add_library(config4cpp SHARED ${LIB_SOURCES})
++if(BUILD_STATIC)
++	add_library(config4cpp-static STATIC ${LIB_SOURCES})
++	set_target_properties(config4cpp-static
++		PROPERTIES OUTPUT_NAME config4cpp
++	)
++install(TARGETS config4cpp-static)
++endif()
++file(GLOB CONFIG4CPP_PUB_HDR
++	${CMAKE_SOURCE_DIR}/include/config4cpp/*.h
++)
++set_target_properties(config4cpp PROPERTIES
++	PUBLIC_HEADER "${CONFIG4CPP_PUB_HDR}"
++	SOVERSION ${CONFIG4CPP_VERSION_MAJOR}
++	VERSION ${PROJECT_VERSION}
++)
++install(TARGETS config4cpp
++	LIBRARY DESTINATION lib
++	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/config4cpp
++)
++
++add_executable(config2cpp-exe
++	config2cpp-main.cpp
++	Config2Cpp.cpp
++)
++target_link_libraries(config2cpp-exe config4cpp)
++set_target_properties(config2cpp-exe
++	PROPERTIES OUTPUT_NAME config2cpp
++)
++install(TARGETS config2cpp-exe)
++
++add_executable(config4cpp-exe
++	config4cpp.cpp
++)
++target_link_libraries(config4cpp-exe config4cpp)
++set_target_properties(config4cpp-exe
++	PROPERTIES OUTPUT_NAME config4cpp
++)
++install(TARGETS config4cpp-exe)
+diff --git a/tests/schema-types/CMakeLists.txt b/tests/schema-types/CMakeLists.txt
+new file mode 100644
+index 0000000..bc9a8db
+--- /dev/null
++++ b/tests/schema-types/CMakeLists.txt
+@@ -0,0 +1,9 @@
++add_executable(test-schema-types-exe main.cpp)
++set_target_properties(test-schema-types-exe
++	PROPERTIES OUTPUT_NAME test-schema-types
++)
++target_link_libraries(test-schema-types-exe PUBLIC config4cpp)
++
++add_test(NAME TEST_SCHEMA_TYPES
++	COMMAND ${CMAKE_CURRENT_BINARY_DIR}/test-schema-types -cfg ${CMAKE_CURRENT_SOURCE_DIR}/schema-type-tests.cfg
++)
+-- 
+2.24.1
+

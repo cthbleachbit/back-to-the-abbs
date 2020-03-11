@@ -1,5 +1,0 @@
-set +e
-
-for i in CMakeLists.txt src/CMakeLists.txt; do
-	cp ${SRCDIR}/autobuild/cmake/${i} ${SRCDIR}/${i}
-done
