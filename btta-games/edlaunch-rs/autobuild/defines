@@ -2,4 +2,5 @@ PKGNAME=edlaunch-rs
 PKGSEC=games
 PKGDEP="glibc wine libuv samba dbus"
 BUILDDEP="rust-base libsecret"
+PKGRECOM="aria2"
 PKGDES="A third-party implementation of the official Elite: Dangerous (TM) launcher"
