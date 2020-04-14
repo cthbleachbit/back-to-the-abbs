@@ -1,0 +1,24 @@
+pushd "$SRCDIR"
+
+scons -j $(nproc) strong_warnings=false
+scons addons -j $(nproc) strong_warnings=false
+
+pushd lib64
+for i in *.so* *.a ; do
+	install -Dm644 $i ${PKGDIR}/usr/lib/$i
+done
+popd
+
+pushd bin64
+for i in * ; do
+	install -Dm755 $i ${PKGDIR}/usr/bin/${i/.exe/}
+done
+popd
+
+# Documentations
+doxygen Doxyfile
+install -d ${PKGDIR}/usr/share/doc/
+cp -R Doc/doxygen/html ${PKGDIR}/usr/share/doc/wali-opennwa
+
+
+popd

@@ -1,0 +1,5 @@
+_VER=0
+_DATE=20181128
+VER=${_VER}+${_DATE}
+SRCTBL="https://github.com/WaliDev/WALi-OpenNWA/tarball/master"
+CHKSUM="sha256::15297c84eb75956919547636b2e6158822babc47f0b733925a655c8306dd486e"
