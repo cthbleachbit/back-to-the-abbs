@@ -1,0 +1,9 @@
+pushd ${SRCDIR}
+
+install -d ${PKGDIR}/usr/src/v4l2loopback-${PKGVER}
+shopt -s extglob
+cp -Ra !(autobuild|abdist|acbs-build*.log) ${PKGDIR}/usr/src/v4l2loopback-${PKGVER}
+
+make DESTDIR="${PKGDIR}" PREFIX="/usr" install-utils install-man
+
+popd
