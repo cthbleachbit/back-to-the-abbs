@@ -20,5 +20,10 @@ doxygen Doxyfile
 install -d ${PKGDIR}/usr/share/doc/
 cp -R Doc/doxygen/html ${PKGDIR}/usr/share/doc/wali-opennwa
 
+# Header file
+pushd Source
+find -name "*.hpp" -exec \
+	install -Dm644 {} ${PKGDIR}/usr/include/{} \;
+popd
 
 popd

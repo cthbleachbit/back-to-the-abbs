@@ -2,6 +2,6 @@ PKGNAME=wali-opennwa
 PKGSEC=libs
 PKGDES="Library for weighted automaton and nested-word automaton"
 PKGDEP="boost"
-BUILDDEP="doxygen cmake scons"
+BUILDDEP="doxygen cmake scons graphviz"
 
 NOSTATIC=0
