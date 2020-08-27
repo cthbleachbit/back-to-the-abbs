@@ -1,6 +1,6 @@
 unset ARCH
 
-DRIVER_VER=0.12.4
+DRIVER_VER=0.12.5
 NAME=v4l2loopback
 
 for i in `ls /usr/lib/modules | grep -v 'extramodules'`; do
