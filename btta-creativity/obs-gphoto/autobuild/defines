@@ -1,0 +1,6 @@
+PKGNAME=obs-gphoto
+PKGSEC=graphics
+PKGDEP="libgphoto2 obs-studio imagemagick"
+PKGDES="GPhoto2 capturing for OBS Studio"
+
+CMAKE_AFTER="-DSYSTEM_INSTALL=1"
