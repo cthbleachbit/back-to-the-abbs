@@ -1,3 +1,0 @@
-VER=7.0.10+10
-SRCTBL="http://www.imagemagick.org/download/releases/ImageMagick-${VER/+/-}.tar.xz"
-CHKSUM="sha256::df1a37b73aa49423abb422c2150a0e1436920ba50dfc4377c6a3793f9826e5f1"
