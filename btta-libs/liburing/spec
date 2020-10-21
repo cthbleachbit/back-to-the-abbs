@@ -1,0 +1,3 @@
+VER=0.7
+SRCTBL="https://github.com/axboe/liburing/archive/liburing-${VER}.tar.gz"
+CHKSUM="sha256::8e2842cfe947f3a443af301bdd6d034455536c38a455c7a700d0c1ad165a7543"

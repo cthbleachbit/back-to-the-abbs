@@ -1,0 +1,3 @@
+./configure --prefix=/usr --mandir=/usr/share/man
+make
+make DESTDIR="${PKGDIR}" install
