@@ -1,0 +1,2 @@
+curl https://static.cth451.me/btta/pubkey/now.pub > now.pub
+curl https://static.cth451.me/btta/pubkey/last.pub > last.pub
