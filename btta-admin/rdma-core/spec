@@ -1,0 +1,3 @@
+VER=31.0
+SRCTBL="https://github.com/linux-rdma/rdma-core/releases/download/v${VER}/rdma-core-${VER}.tar.gz"
+CHKSUM="sha256::51ae9a3ab81cd6834436813fafc310c8b7007feae9d09a53fdd5c169e648d50b"

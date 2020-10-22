@@ -1,0 +1,9 @@
+/etc/infiniband-diags/error_thresholds
+/etc/infiniband-diags/ibdiag.conf
+/etc/iwpmd.conf
+/etc/udev/rules.d/70-persistent-ipoib.rules
+/etc/modprobe.d/mlx4.conf
+/etc/modprobe.d/truescale.conf
+/etc/rdma/rdma.conf
+/etc/rdma/sriov-vfs
+/etc/srp_daemon.conf
