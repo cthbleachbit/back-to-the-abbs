@@ -1,0 +1,5 @@
+PKGNAME=libaacs
+PKGSEC=libs
+PKGDES="Advanced Access Content System"
+PKGDEP="libgcrypt"
+
