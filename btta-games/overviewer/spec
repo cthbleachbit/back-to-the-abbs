@@ -1,5 +1,5 @@
-_MAJ_MIN=0.15
-_PATCH=30
+_MAJ_MIN=0.16
+_PATCH=8
 VER=${_MAJ_MIN}.${_PATCH}
 GITSRC="https://github.com/overviewer/Minecraft-Overviewer.git"
-GITCO="dc6f8cfcbd1056facac369152e88fb24bab86cc9"
+GITCO="731af71d2796a6d22fd14caf03d5769bf15fe593"
