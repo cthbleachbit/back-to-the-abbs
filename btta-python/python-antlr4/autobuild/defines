@@ -1,0 +1,7 @@
+PKGNAME=python-antlr4
+PKGSEC=python
+PKGDES="ANTLR4 runtime for python"
+PKGDEP="python-3 python-2"
+BUILDDEP="setuptools"
+
+ABHOST=noarch

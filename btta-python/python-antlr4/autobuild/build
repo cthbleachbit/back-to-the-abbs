@@ -1,0 +1,7 @@
+pushd runtime/Python2
+python2 setup.py install --root="$PKGDIR" --optimize=1
+popd
+
+pushd runtime/Python3
+python3 setup.py install --root="$PKGDIR" --optimize=1
+popd

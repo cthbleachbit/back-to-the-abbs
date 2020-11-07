@@ -1,0 +1,3 @@
+VER=4.8
+SRCS="tbl::https://github.com/antlr/antlr4/archive/${VER}.tar.gz"
+CHKSUMS="sha256::992d52444b81ed75e52ea62f9f38ecb7652d5ce2a2130af143912b3042a6d77e"
