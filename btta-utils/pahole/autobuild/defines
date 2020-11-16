@@ -1,0 +1,6 @@
+PKGNAME=pahole
+PKGSEC=utils
+PKGDEP="elfutils python-3"
+PKGDES="Object analysis tools"
+
+CMAKE_AFTER="-DLIB_INSTALL_DIR=/usr/lib"
