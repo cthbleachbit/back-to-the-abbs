@@ -1,0 +1,35 @@
+if [ "x$(uname -m)" == "xaarch64" ]; then
+	_STRIP=strip
+else
+	abinfo "Using cross-complier binutils for stripping"
+	_STRIP=/opt/abcross/arm64/bin/aarch64-aosc-linux-gnu-strip
+fi
+
+elf_strip()
+{
+    case "$(readelf -h $1)" in
+        *Type:*'DYN (Shared object file)'*)
+            abinfo "${_STRIP} --strip-unneeded --remove-section=.comment --remove-section=.note ${1#$SRCDIR}"
+            ${_STRIP} --strip-unneeded --remove-section=.comment --remove-section=.note $1 ;;
+        *Type:*'EXEC (Executable file)'*)
+            abinfo "${_STRIP} --strip-all --remove-section=.comment --remove-section=.note ${1#$SRCDIR}"
+            ${_STRIP} --strip-all --remove-section=.comment --remove-section=.note $1 ;;
+        *Type:*'REL (Relocatable file)'*)
+    case "$1" in
+        *.ko)
+            abinfo "${_STRIP} --strip-unneeded --remove-section=.comment --remove-section=.note ${1#$SRCDIR}"
+            ${_STRIP} --strip-unneeded --remove-section=.comment --remove-section=.note $1 ;;
+        *)
+            abinfo "${_STRIP} --strip-debug --enable-deterministic-archives --remove-section=.comment --remove-section=.note ${1#$SRCDIR}"
+            ${_STRIP} --strip-debug --enable-deterministic-archives --remove-section=.comment --remove-section=.note $1 ;;
+    esac ;;
+        *)
+            true ;;
+    esac
+}
+
+for _ko in `find "$SRCDIR" -name '*.ko'`; do
+    elf_strip "$_ko"
+done
+
+unset _STRIP

@@ -1,0 +1,14 @@
+unset CFLAGS
+unset CPPFLAGS
+unset LDFLAGS
+
+ln -sv /usr/bin/ld.bfd "$SRCDIR"/ld
+export PATH="$SRCDIR:$PATH"
+
+sed -e 's|^EXTRAVERSION = -rc.*|EXTRAVERSION =|g' -i Makefile
+
+if [ "x$(uname -m)" != "xaarch64" ]; then
+	abinfo "Setting cross compilation variables"
+	export ARCH=arm64
+	export CROSS_COMPILE=/opt/abcross/arm64/bin/aarch64-aosc-linux-gnu-
+fi

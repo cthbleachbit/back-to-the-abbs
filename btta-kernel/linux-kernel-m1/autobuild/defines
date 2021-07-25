@@ -1,0 +1,14 @@
+PKGNAME=linux-kernel-m1-${PKGVER}
+PKGSEC=kernel
+PKGDEP=""
+BUILDDEP="bc git pahole"
+BUILDDEP__AMD64="${BUILDDEP} gcc+cross-arm64"
+PKGDES="Linux Kernel v${PKGVER} for AOSC OS on Apple M1 devices"
+
+ABSTRIP=0
+ABELFDEP=0
+
+PKGBREAK="zfs<=2.0.0"
+
+CROSS=arm64
+ABHOST=arm64
