@@ -1,5 +1,0 @@
-PKGNAME=liburing
-PKGSEC=libs
-PKGDES="User asynchronous IO ring support library"
-PKGDEP="glibc"
-
