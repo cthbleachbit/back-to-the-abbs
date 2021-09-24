@@ -1,2 +1,0 @@
-install -Dm644 KEYDB.cfg "${PKGDIR}/usr/share/doc/libaacs/KEYDB.cfg"
-install -Dm644 README.md "${PKGDIR}/usr/share/doc/libaacs/README.md"
