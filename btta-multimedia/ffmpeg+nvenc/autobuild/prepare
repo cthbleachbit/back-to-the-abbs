@@ -1,0 +1,2 @@
+abinfo "Prepend path into /usr/lib/cuda/bin"
+export PATH="/usr/lib/cuda/bin:$PATH"
