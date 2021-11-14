@@ -1,0 +1,8 @@
+PKGNAME=telegram-tdlib
+PKGSEC=libs
+PKGDES="Library for building telegram client"
+PKGDEP="openssl zlib"
+BUILDDEP="gperf"
+
+ABTYPE=cmake
+NOSTATIC=0

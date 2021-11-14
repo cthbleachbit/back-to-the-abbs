@@ -1,0 +1,6 @@
+_DATE=20211114
+_COMMIT=33c689aacc78ef5a68973552b968a3bb68cdd7c6
+VER=${_DATE}+git${_COMMIT:8}
+GITSRC="https://github.com/tdlib/td.git"
+GITCO="$_COMMIT"
+
