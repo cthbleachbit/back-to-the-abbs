@@ -1,5 +1,5 @@
 PKGNAME=nbtp
 PKGSEC=libs
 PKGDES="NBT Parser Library in C++"
-PKGDEP="glibc"
+PKGDEP="glibc fmt python-3"
 BUILDDEP="pybind11"

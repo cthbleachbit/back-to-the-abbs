@@ -1,4 +1,4 @@
 GITSRC=https://git.cth451.me/cth451/nbtp.git
-VER=0.2.0
+VER=0.3.2
 GITCO="tags/v${VER}"
 CHKSUMS="SKIP"
