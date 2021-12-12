@@ -1,0 +1,4 @@
+PKGNAME=fstransform
+PKGSEC=admin
+PKGDEP="glibc"
+PKGDES="Tool for in-place filesystem conversion"
