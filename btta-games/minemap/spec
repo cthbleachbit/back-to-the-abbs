@@ -1,4 +1,4 @@
 VER=0.4.5
-REL=1
+REL=2
 SRCTBL="https://github.com/cthbleachbit/minemap/archive/v${VER}.tar.gz"
 CHKSUM="sha256::47a07a49d07f6f2207c5bcd9a66c535d33d205dde79718285c4708424ae0bd94"
