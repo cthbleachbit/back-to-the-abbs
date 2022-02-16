@@ -1,4 +1,4 @@
 PKGNAME=minemap
 PKGSEC=utils
-PKGDEP="imagemagick+7 nbtp fmt"
+PKGDEP="graphicsmagick nbtp fmt"
 PKGDES="Images to minecraft map item generator"
