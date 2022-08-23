@@ -1,0 +1,6 @@
+PKGNAME=grater
+PKGSEC=graphics
+PKGDEP="grpc fmt"
+PKGDES="Distributed blender animation rendering by frame"
+
+CMAKE_AFTER="-DSYSTEM_INSTALL=1"
