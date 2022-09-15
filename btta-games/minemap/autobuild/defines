@@ -1,4 +1,7 @@
 PKGNAME=minemap
 PKGSEC=utils
 PKGDEP="graphicsmagick nbtp fmt"
+BUILDDEP="gettext"
 PKGDES="Images to minecraft map item generator"
+
+CMAKE_AFTER="-DUSE_GETTEXT=ON"
