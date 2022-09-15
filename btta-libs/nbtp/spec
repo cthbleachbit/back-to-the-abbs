@@ -1,3 +1,3 @@
-VER=0.3.3
+VER=0.4.0
 SRCS="tbl::https://github.com/cthbleachbit/nbt-parser/archive/refs/tags/v${VER}.tar.gz"
-CHKSUMS="sha256::0b1a091da5caeb4eb30d037231027b58c85e67a7f8199c08ed90e4df7fd81a9a"
+CHKSUMS="sha256::369eaa375b724ff06d4ed5de1bae970821c6eefb9929a7cebf3408ea87485606"
