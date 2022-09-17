@@ -1,0 +1,6 @@
+PKGNAME=plymouth-jelly-in-a-truck
+PKGSEC=graphics
+PKGDES="Plymouth theme - jelly in a truck"
+PKGDEP="plymouth"
+
+ABHOST=noarch

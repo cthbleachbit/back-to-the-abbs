@@ -1,0 +1,3 @@
+VER=20220917.0
+SRCS="git::commit=342e527165bd8511f23b4b9e3c557fa2938e9e15::https://github.com/AOSC-Dev/plymouth-jelly-in-a-truck.git"
+CHKSUMS="SKIP"

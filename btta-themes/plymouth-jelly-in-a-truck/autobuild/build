@@ -1,0 +1,3 @@
+cd ${SRCDIR}
+
+DESTDIR=${PKGDIR} ./install.sh
