@@ -1,6 +1,5 @@
-_MAJ_MIN=0.17
-_PATCH=41
+_MAJ_MIN=0.19
+_PATCH=9
 VER=${_MAJ_MIN}.${_PATCH}
-GITSRC="https://github.com/overviewer/Minecraft-Overviewer.git"
-GITCO="2402e410cfb0dce1068bc42b2854c00791d6f108"
-CHKSUMS="SKIP"
+SRCS="tbl::https://overviewer.org/builds/src/283/overviewer-${VER}.tar.gz"
+CHKSUMS="sha256::4af9ccc224dd48e7fe1b244a30680712f25ccf6ebd641a1fe061bbf9e7a8c75c"
