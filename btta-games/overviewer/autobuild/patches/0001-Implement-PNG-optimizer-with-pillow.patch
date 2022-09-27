@@ -1,0 +1,84 @@
+From ffcedfa5248baae7c669a807051f8c1668ac0004 Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Tue, 27 Sep 2022 13:27:45 -0400
+Subject: [PATCH 1/3] Implement PNG optimizer with pillow
+
+Currently all Image optmizers will fork/exec on an external program for
+every single image tile generated from dispatcher. This drags the
+performance in the optimizing phase due to expensive user/kernel space
+switching.
+
+Using PIL/pillow allows image operations without launching external
+programs. Hopefully this is an acceptable tradeoff between performance
+and resulting file size.
+---
+ overviewer_core/optimizeimages.py     | 30 ++++++++++++++++++++++++++-
+ overviewer_core/settingsDefinition.py |  2 +-
+ 2 files changed, 30 insertions(+), 2 deletions(-)
+
+diff --git a/overviewer_core/optimizeimages.py b/overviewer_core/optimizeimages.py
+index aaa8280..ae42c35 100644
+--- a/overviewer_core/optimizeimages.py
++++ b/overviewer_core/optimizeimages.py
+@@ -12,9 +12,10 @@
+ #
+ #    You should have received a copy of the GNU General Public License along
+ #    with the Overviewer.  If not, see <http://www.gnu.org/licenses/>.
+-
++import importlib
+ import os
+ import subprocess
++import sys
+ 
+ 
+ class Optimizer:
+@@ -209,6 +210,33 @@ class oxipng(Optimizer, PNGOptimizer):
+         return True
+ 
+ 
++class pillowpng(Optimizer, PNGOptimizer):
++
++    def __init__(self, colors=20, dither=False):
++        if colors < 2:
++            raise Exception("You can't use less than 2 colors")
++        self.colors = colors
++        self.dither = dither
++
++    def optimize(self, img):
++        orig = self.pil.Image.open(img)
++        conv = orig.convert('P', palette=self.pil.Image.ADAPTIVE, colors=self.colors,
++                            dither=self.pil.Image.FLOYDSTEINBERG if self.dither else self.pil.Image.NONE)
++        conv.save(img, format='PNG', optimize=True)
++
++    def check_availability(self):
++        if 'PIL' in sys.modules:
++            self.pil = sys.modules['PIL']
++        else:
++            try:
++                self.pil = importlib.import_module("PIL")
++            except ImportError as e:
++                raise Exception("Python image libraries was not found!")
++
++    def is_crusher(self):
++        return True
++
++
+ def optimize_image(imgpath, imgformat, optimizers):
+     for opt in optimizers:
+         if imgformat == 'png':
+diff --git a/overviewer_core/settingsDefinition.py b/overviewer_core/settingsDefinition.py
+index 78def0e..dce00fc 100644
+--- a/overviewer_core/settingsDefinition.py
++++ b/overviewer_core/settingsDefinition.py
+@@ -47,7 +47,7 @@ from collections import OrderedDict
+ 
+ from .settingsValidators import *
+ from .observer import ProgressBarObserver, LoggingObserver, JSObserver
+-from .optimizeimages import pngnq, optipng, pngcrush
++from .optimizeimages import pngnq, optipng, pngcrush, pillowpng
+ import platform
+ import sys
+ 
+-- 
+2.37.1
+

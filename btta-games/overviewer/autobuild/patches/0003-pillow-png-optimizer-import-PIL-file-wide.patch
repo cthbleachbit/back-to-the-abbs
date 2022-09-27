@@ -1,0 +1,57 @@
+From 52170a1bbd7f0a79f18f7196a52e184ca00449eb Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Tue, 27 Sep 2022 18:31:05 -0400
+Subject: [PATCH 3/3] pillow png optimizer: import PIL file-wide
+
+For some reason PIL is not part of requirements.txt, but seems to be
+assumed to exist in other parts of Overviewer. Programmatically imported
+modules cannot be pickled and thus fails under multiprocessing, so we
+are taking the assumption and import PIL early.
+---
+ overviewer_core/optimizeimages.py | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
+
+diff --git a/overviewer_core/optimizeimages.py b/overviewer_core/optimizeimages.py
+index cb92529..6912a7b 100644
+--- a/overviewer_core/optimizeimages.py
++++ b/overviewer_core/optimizeimages.py
+@@ -12,10 +12,10 @@
+ #
+ #    You should have received a copy of the GNU General Public License along
+ #    with the Overviewer.  If not, see <http://www.gnu.org/licenses/>.
+-import importlib
++
+ import os
+ import subprocess
+-import sys
++from PIL import Image
+ 
+ 
+ class Optimizer:
+@@ -219,19 +219,13 @@ class pillowpng(Optimizer, PNGOptimizer):
+         self.dither = dither
+ 
+     def optimize(self, img):
+-        orig = self.pil.Image.open(img)
+-        conv = orig.convert('P', palette=self.pil.Image.ADAPTIVE, colors=self.colors,
+-                            dither=self.pil.Image.FLOYDSTEINBERG if self.dither else self.pil.Image.NONE)
++        orig = Image.open(img)
++        conv = orig.convert('P', palette=Image.ADAPTIVE, colors=self.colors,
++                            dither=Image.FLOYDSTEINBERG if self.dither else Image.NONE)
+         conv.save(img, format='PNG', optimize=True)
+ 
+     def check_availability(self):
+-        if 'PIL' in sys.modules:
+-            self.pil = sys.modules['PIL']
+-        else:
+-            try:
+-                self.pil = importlib.import_module("PIL")
+-            except ImportError as e:
+-                raise Exception("Python image libraries was not found!")
++        return True
+ 
+     def is_crusher(self):
+         return True
+-- 
+2.37.1
+
