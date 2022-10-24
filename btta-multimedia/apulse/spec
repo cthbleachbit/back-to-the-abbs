@@ -1,0 +1,3 @@
+VER=0.1.13
+SRCS="tbl::https://github.com/i-rinat/apulse/archive/refs/tags/v${VER}.tar.gz"
+CHKSUMS="sha256::9234ec4e10e408b9c01d5f4ea768ad1fc15494217c932db2c435202a9c7b5efd"
