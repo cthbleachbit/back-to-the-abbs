@@ -1,0 +1,5 @@
+PKGNAME=apulse+32
+PKGSEC=sound
+PKGDEP="alsa-lib+32 alsa-plugins+32 glib+32"
+BUILDDEP="gcc+32 linux+api+32"
+PKGDES="PulseAudio Emulator for ALSA sound devices (optenv32)"
