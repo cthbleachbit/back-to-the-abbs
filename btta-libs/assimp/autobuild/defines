@@ -1,0 +1,8 @@
+PKGNAME=assimp
+PKGSEC=libs
+PKGDES="Open Asset Import Library"
+PKGDEP="zlib"
+
+CMAKE_AFTER=(
+	-DASSIMP_DOUBLE_PRECISION=ON
+)

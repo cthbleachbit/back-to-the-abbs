@@ -1,0 +1,3 @@
+VER=5.2.5
+SRCS="tbl::https://github.com/assimp/assimp/archive/refs/tags/v${VER}.tar.gz"
+CHKSUMS="sha256::b5219e63ae31d895d60d98001ee5bb809fb2c7b2de1e7f78ceeb600063641e1a"
