@@ -1,8 +1,0 @@
-PKGNAME=dpdk
-PKGSEC=libs
-PKGDES="Data plane development kit"
-PKGDEP="glibc"
-BUILDDEP="doxygen"
-
-ABTYPE=meson
-MESON_AFTER="-Ddefault_library=shared"
