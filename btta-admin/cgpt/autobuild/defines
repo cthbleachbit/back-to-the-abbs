@@ -1,0 +1,4 @@
+PKGNAME="cgpt"
+PKGSEC="admin"
+PKGDES="Utility to manipulate GPT partitions with Chromium OS extensions"
+PKGDEP="libflashrom"
