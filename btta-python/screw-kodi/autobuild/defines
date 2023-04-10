@@ -1,0 +1,8 @@
+PKGNAME=screw-kodi
+PKGSEC=util
+PKGDEP="python-3"
+BUILDDEP="wheel python-build pep517 setuptools python-installer"
+PKGDES="Screw Kodi media library"
+
+NOPYTHON2=1
+ABHOST=noarch
