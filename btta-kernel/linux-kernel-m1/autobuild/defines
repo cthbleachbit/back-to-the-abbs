@@ -1,14 +1,10 @@
-PKGNAME=linux-kernel-m1-${PKGVER}
+PKGNAME=linux-kernel-m1-6.3.5
 PKGSEC=kernel
 PKGDEP=""
-BUILDDEP="bc git pahole"
-BUILDDEP__AMD64="${BUILDDEP} gcc+cross-arm64"
-PKGDES="Linux Kernel v${PKGVER} for AOSC OS on Apple M1 devices"
+BUILDDEP="bc git pahole parallel kernel-build-common"
+BUILDDEP__ARM64="$BUILDDEP llvm"
+PKGDES="Linux Kernel v6.3.5 for AOSC OS (Apple M1)"
 
+FAIL_ARCH="!(arm64)"
 ABSTRIP=0
 ABELFDEP=0
-
-PKGBREAK="zfs<=2.0.0"
-
-CROSS=arm64
-ABHOST=arm64

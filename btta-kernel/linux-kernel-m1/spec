@@ -1,4 +1,3 @@
-VER=5.13.4
-SRCS="tbl::https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${VER}.tar.xz"
-CHKSUMS="sha256::7192cd2f654aa6083451dea01b80748fe1eebcf2476a589ef4146590030e7d6c"
-REL=1
+VER=6.3.5
+SRCS="tbl::https://git.cth451.me/cth451/linux/-/archive/aosc-m1-${VER}/linux-aosc-m1-${VER}.tar.gz"
+CHKSUMS="sha256::af43c3d10c3523cbb857ed8d5f7262a3de8c64902f9a88ef60bd9d24ecc421ca"
