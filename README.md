@@ -7,7 +7,7 @@ Neta from "back to the future", a repository of AOSC OS build configurations tha
  - shabby utilities written by myself with no safety/appropriateness guarantees (lul)
  - experimental and/or dirty hacks
 
-~I will not provide binary archives for packages here, nor users should redistribute copyright restricted packages build from these configurations.~ A subset of packages targeting three current AOSC OS release streams (stable, testing) are hosted on [my static file host](https://static.cth451.me/btta) as apt sources. Due to copyright restrictions, some packages won't be available in the repository for direct download. For instructions on how to build these packages for yourself, check AOSC cadet training on [main tree wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki).
+~I will not provide binary archives for packages here, nor users should redistribute copyright restricted packages build from these configurations.~ A subset of redistributable packages current AOSC OS stable release stream are available as apt binary sources. Due to copyright restrictions, some packages won't be available in the repository for direct download. For instructions on how to build these packages for yourself, check AOSC cadet training on [main tree wiki](https://github.com/AOSC-Dev/aosc-os-abbs/wiki).
 
 Packages here might move to the main ABBS tree if the situation allows, including but not limited to:
 
@@ -22,22 +22,17 @@ Adding apt sources
 
 ##### 1A For users on the stable branch
 
-Download [this deb](https://static.cth451.me/btta/deploy.deb), and install.
+Download [this deb](https://btta.cth451.me/deploy.deb), and install.
 
 ##### Or... 1B Manual setup for custom branches
 
-AOSC OS stores apt repo information in a similar way as may other distros in `/etc/apt`. To add `btta` to your system, create a new text file `btta.list` under `/etc/apt/sources.list.d` with following contents (replace `$STREAM` with the release stream you are currently on, e.g. `stable`, `testing` or `explosive`):
+AOSC OS stores apt repo information in a similar way as may other distros in `/etc/apt`. To add `btta` to your system, create a new text file `btta.list` under `/etc/apt/sources.list.d` with following contents.
 
 ```
-# cth451's back-to-the-abbs repo
-deb https://static.cth451.me/btta $STREAM main
+deb [signed-by=/etc/apt/trusted.gpg.d/btta.gpg] https://btta.cth451.me stable main
 ```
 
-Ask `apt-key` to trust the signing key of btta with the following command. This public key should carry a signature from my main GPG key.
-
-```
-curl https://static.cth451.me/btta/pubkey/btta.pub | apt-key --keyring /etc/apt/trusted.gpg.d/btta.gpg add -
-```
+Download repo signing key from https://github.com/cthbleachbit/back-to-the-abbs/raw/master/btta-bases/btta/autobuild/overrides/etc/apt/trusted.gpg.d/btta.gpg and place it in `/etc/apt/trusted.gpg.d`.
 
 ##### 2 Profit
 
