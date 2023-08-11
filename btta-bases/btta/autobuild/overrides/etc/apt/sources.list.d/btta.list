@@ -1,1 +1,1 @@
-deb https://static.cth451.me/btta/ stable main
+deb [signed-by=/etc/apt/trusted.gpg.d/btta.gpg] https://btta.cth451.me stable main
