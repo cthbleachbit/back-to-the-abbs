@@ -1,3 +1,0 @@
-VER=4.15.0+1
-GITSRC="https://github.com/Mellanox/mstflint.git"
-GITCO="v${VER/+/-}"
