@@ -1,0 +1,11 @@
+PKGNAME=rtl-sdr
+PKGSEC=hamradio
+PKGDES="Software to turn the RTL2832U into a SDR receiver"
+PKGDEP="libusb"
+
+ABSHADOW=no
+ABTYPE=cmake
+CMAKE_AFTER=(
+	-DDETACH_KERNEL_DRIVER=ON
+	-DINSTALL_UDEV_RULES=ON
+)
