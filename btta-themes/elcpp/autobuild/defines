@@ -1,5 +1,0 @@
-PKGNAME=elcpp
-PKGSEC=graphics
-PKGDES="Live wallpaper of planet Earth from space"
-PKGDEP="boost curl gettext imagemagick zenity glib"
-BUILDDEP="git"
