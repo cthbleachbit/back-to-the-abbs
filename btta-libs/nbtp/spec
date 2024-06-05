@@ -1,3 +1,3 @@
-VER=0.6.0
+VER=0.6.1
 SRCS="tbl::https://git.cth451.me/cth451/nbtp/-/archive/v${VER}/nbtp-v${VER}.tar.gz"
-CHKSUMS="sha256::7becc74adff889447cd10f2e97eb9ad92133a4bca6470f02bf372e5394718c60"
+CHKSUMS="sha256::88d984e696ab27009a273c56a008f8d4110612754f0af53bce7696c6026298b6"
