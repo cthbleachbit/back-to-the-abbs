@@ -1,4 +1,3 @@
-GITVER="1261fbb2"
-VER="20230822~git${GITVER}"
-SRCS="git::commit=${GITVER}::https://gitea.osmocom.org/sdr/rtl-sdr.git"
+VER="2.0.2"
+SRCS="git::commit=v${VER}::https://gitea.osmocom.org/sdr/rtl-sdr.git"
 CHKSUMS="SKIP"
