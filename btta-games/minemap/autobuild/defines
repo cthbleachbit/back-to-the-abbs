@@ -1,6 +1,6 @@
 PKGNAME=minemap
 PKGSEC=utils
-PKGDEP="graphicsmagick nbtp fmt"
+PKGDEP="graphicsmagick nbtp fmt gcc-runtime zlib"
 BUILDDEP="gettext"
 PKGDES="Images to minecraft map item generator"
 
