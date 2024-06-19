@@ -1,0 +1,4 @@
+VER=0.0.9
+SRCS="tbl::https://github.com/andrew-d/python-multipart/archive/$VER.tar.gz"
+CHKSUMS="sha256::71c887316d8a26f34e56f08ab7ef557ca4d7c04871a2aabb37dbe2854461955f"
+CHKUPDATE="anitya::id=18463"

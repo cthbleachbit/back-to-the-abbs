@@ -1,0 +1,9 @@
+PKGNAME=python-multipart
+PKGSEC=python
+PKGDEP="python-3"
+BUILDDEP="setuptools python-build python-installer wheel hatchling"
+PKGDES="Streaming multipart parser for Python"
+
+ABTYPE=pep517
+ABHOST=noarch
+NOPYTHON2=1
