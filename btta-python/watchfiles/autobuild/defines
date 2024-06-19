@@ -1,0 +1,9 @@
+PKGNAME=watchfiles
+PKGSEC=python
+PKGDEP="python-3 anyio"
+BUILDDEP="setuptools python-build python-installer wheel rustc llvm maturin"
+PKGDES="High performance file watch and code reload in python"
+
+ABTYPE=pep517
+ABSPLITDBG=0
+NOPYTHON2=1

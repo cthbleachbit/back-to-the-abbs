@@ -1,0 +1,4 @@
+VER=0.22.0
+SRCS="tbl::https://pypi.io/packages/source/w/watchfiles/watchfiles-$VER.tar.gz"
+CHKSUMS="sha256::988e981aaab4f3955209e7e28c7794acdb690be1efa7f16f8ea5aba7ffdadacb"
+CHKUPDATE="anitya::id=243538"
