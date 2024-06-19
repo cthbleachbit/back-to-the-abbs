@@ -1,0 +1,12 @@
+diff -Naur uvloop-0.19.0/pyproject.toml uvloop-0.19.0.hack/pyproject.toml
+--- uvloop-0.19.0/pyproject.toml	2023-10-22 16:55:50.000000000 -0400
++++ uvloop-0.19.0.hack/pyproject.toml	2024-06-18 22:54:30.686638445 -0400
+@@ -55,7 +55,7 @@
+ requires = [
+     "setuptools>=60",
+     "wheel",
+-    "Cython(>=0.29.36,<0.30.0)",
++    "Cython(>=0.29.36)",
+ ]
+ build-backend = "setuptools.build_meta"
+ 

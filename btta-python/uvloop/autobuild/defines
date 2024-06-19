@@ -1,0 +1,8 @@
+PKGNAME=uvloop
+PKGSEC=python
+PKGDEP="python-3 libuv"
+BUILDDEP="setuptools python-build python-installer wheel cython"
+PKGDES="libuv based asyncio event loop for python"
+
+ABTYPE=pep517
+NOPYTHON2=1

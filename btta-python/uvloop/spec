@@ -1,0 +1,4 @@
+VER=0.19.0
+SRCS="tbl::https://pypi.io/packages/source/u/uvloop/uvloop-$VER.tar.gz"
+CHKSUMS="sha256::0246f4fd1bf2bf702e06b0d45ee91677ee5c31242f39aab4ea6fe0c51aedd0fd"
+CHKUPDATE="anitya::id=12762"

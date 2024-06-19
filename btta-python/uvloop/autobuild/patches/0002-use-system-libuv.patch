@@ -1,0 +1,12 @@
+diff -Naur uvloop-0.19.0/setup.py uvloop-0.19.0.hack/setup.py
+--- uvloop-0.19.0/setup.py	2024-06-18 22:57:47.333101191 -0400
++++ uvloop-0.19.0.hack/setup.py	2024-06-18 22:58:16.634168946 -0400
+@@ -83,7 +83,7 @@
+ 
+     def initialize_options(self):
+         super().initialize_options()
+-        self.use_system_libuv = False
++        self.use_system_libuv = True
+         self.cython_always = False
+         self.cython_annotate = None
+         self.cython_directives = None
