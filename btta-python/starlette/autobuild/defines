@@ -1,0 +1,9 @@
+PKGNAME=starlette
+PKGSEC=python
+PKGDEP="python-3 anyio jinja2 python-multipart pyyaml"
+BUILDDEP="setuptools python-build python-installer wheel"
+PKGDES="A lightweight ASGI framework"
+
+ABTYPE=pep517
+ABHOST=noarch
+NOPYTHON2=1
