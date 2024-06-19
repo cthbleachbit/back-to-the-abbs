@@ -1,0 +1,4 @@
+VER=4.4.0
+SRCS="tbl::https://pypi.io/packages/source/a/anyio/anyio-$VER.tar.gz"
+CHKSUMS="sha256::5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
+CHKUPDATE="anitya::id=49275"
