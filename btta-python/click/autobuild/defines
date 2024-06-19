@@ -1,0 +1,9 @@
+PKGNAME=click
+PKGSEC=python
+PKGDEP="python-3"
+BUILDDEP="setuptools python-build python-installer wheel"
+PKGDES="Command Line Interface Creation Kit"
+
+ABTYPE=python
+ABHOST=noarch
+NOPYTHON2=1

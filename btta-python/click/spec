@@ -1,0 +1,4 @@
+VER=8.1.7
+SRCS="https://github.com/pallets/click/archive/$VER.tar.gz"
+CHKSUMS="sha256::89251974dba8552b4e22990ca34adfb93a47ba7deb27fe7358a6661a09ca8793"
+CHKUPDATE="anitya::id=3802"
