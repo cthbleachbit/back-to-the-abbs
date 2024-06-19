@@ -1,0 +1,9 @@
+PKGNAME=uvicorn
+PKGSEC=python
+PKGDEP="python-3 click colorama pyyaml uvloop watchfiles websockets"
+BUILDDEP="setuptools python-build python-installer wheel hatchling"
+PKGDES="An ASGI web server implementation for python"
+
+ABTYPE=pep517
+ABHOST=noarch
+NOPYTHON2=1
