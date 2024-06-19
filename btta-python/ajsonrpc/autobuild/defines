@@ -1,0 +1,9 @@
+PKGNAME=ajsonrpc
+PKGSEC=python
+PKGDEP="python-3"
+BUILDDEP="setuptools python-build python-installer wheel"
+PKGDES="Async json-rpc 2.0 and asyncio server"
+
+ABTYPE=pep517
+ABHOST=noarch
+NOPYTHON2=1

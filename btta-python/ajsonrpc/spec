@@ -1,0 +1,4 @@
+VER=1.2.0
+SRCS="tbl::https://pypi.io/packages/source/a/ajsonrpc/ajsonrpc-$VER.tar.gz"
+CHKSUMS="sha256::791bac18f0bf0dee109194644f151cf8b7ff529c4b8d6239ac48104a3251a19f"
+CHKUPDATE="anitya::id=143139"
