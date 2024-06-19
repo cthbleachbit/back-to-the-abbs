@@ -1,0 +1,7 @@
+PKGNAME=platformio
+PKGDES="An embedded software development ecosystem"
+PKGSEC=python
+PKGDEP="python-3 bottle click colorama marshmallow pyelftools requests semantic-version python-tabulate uvicorn starlette ajsonrpc"
+
+ABHOST=noarch
+NOPYTHON2=1
