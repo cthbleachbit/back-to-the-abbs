@@ -1,0 +1,4 @@
+VER=1.34.130
+SRCS="tbl::https://pypi.io/packages/source/b/botocore/botocore-$VER.tar.gz"
+CHKSUMS="sha256::a242b3b0a836b14f308a309565cd63e88654cec238f9b73abbbd3c0526db4c81"
+CcHKUPDATE="anitya::id=29738"
