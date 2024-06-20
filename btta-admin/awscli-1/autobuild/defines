@@ -1,0 +1,7 @@
+PKGNAME=awscli-1
+PKGDES="An embedded software development ecosystem"
+PKGSEC=python
+PKGDEP="python-3 botocore jmespath colorama pyyaml s3transfer rsa"
+
+ABHOST=noarch
+NOPYTHON2=1

@@ -1,0 +1,4 @@
+VER=1.33.12
+SRCS="tbl::https://github.com/aws/aws-cli/archive/refs/tags/${VER}.tar.gz"
+CHKSUMS="sha256::0a5560ae22bd6aaeadbd71f70fa98fcb82ec9e86da15d6bff180301677fed2a3"
+CHKUPDATE="anitya::id=29739"

@@ -1,0 +1,8 @@
+abinfo "Removing stray windows cmd file"
+rm -vf "${PKGDIR}/usr/bin/aws.cmd"
+
+abinfo "Moving completion files..."
+install -dvm755 "${PKGDIR}/usr/share/bash-completion/completions"
+mv -v "${PKGDIR}/usr/bin/aws_bash_completer" "${PKGDIR}/usr/share/bash-completion/completions/aws"
+install -dvm755 "${PKGDIR}/usr/share/zsh/vendor-completions"
+mv -v "${PKGDIR}/usr/bin/aws_zsh_completer.sh" "${PKGDIR}/usr/share/zsh/vendor-completions/aws"
