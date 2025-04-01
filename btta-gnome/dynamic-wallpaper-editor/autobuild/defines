@@ -1,0 +1,7 @@
+PKGNAME=dynamic-wallpaper-editor
+PKGSEC=gnome
+PKGDEP="python-3 pygobject-3 pango gdk-pixbuf gtk-3"
+BUILDDEP="itstool"
+PKGDES="A simple map application for GNOME"
+
+ABHOST=noarch

@@ -1,0 +1,579 @@
+From ab1494044743ae1178572293d510a548318325be Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Tue, 1 Apr 2025 16:02:10 -0400
+Subject: [PATCH 2/2] zh_CN: add translations
+
+---
+ po/LINGUAS  |   1 +
+ po/zh_CN.po | 550 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 551 insertions(+)
+ create mode 100644 po/zh_CN.po
+
+diff --git a/po/LINGUAS b/po/LINGUAS
+index 73e068a..2c61a3b 100644
+--- a/po/LINGUAS
++++ b/po/LINGUAS
+@@ -10,3 +10,4 @@ nl
+ pt_BR
+ tr
+ ru
++zh_CN
+diff --git a/po/zh_CN.po b/po/zh_CN.po
+new file mode 100644
+index 0000000..8d9edce
+--- /dev/null
++++ b/po/zh_CN.po
+@@ -0,0 +1,550 @@
++# SOME DESCRIPTIVE TITLE.
++# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
++# This file is distributed under the same license as the dynamic-wallpaper-editor package.
++# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: dynamic-wallpaper-editor\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2021-08-10 18:35+0200\n"
++"PO-Revision-Date: 2025-04-01 16:01-0400\n"
++"Last-Translator: Tianhao Chai <cth451@gmail.com>\n"
++"Language-Team: \n"
++"Language: zh_CN\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++"X-Generator: Poedit 3.4.1\n"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++#: data/com.github.maoschanz.DynamicWallpaperEditor.desktop.in src/ui/window.ui
++#: src/main.py
++msgid "Dynamic Wallpaper Editor"
++msgstr "动态壁纸编辑器"
++
++#. Translators: this should stay around 35 and 45 characters.
++#. If it's not possible, remove "or edit", or even "create or edit".
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in src/main.py
++msgid "Create or edit dynamic wallpapers for GNOME"
++msgstr "GNOME 动态壁纸创建与编辑"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid ""
++"Dynamic Wallpaper Editor is a simple utility to create or edit dynamic "
++"wallpapers for the GNOME desktop."
++msgstr ""
++"动态壁纸编辑器是一个让您简单地创建或编辑适用于 GNOME 桌面环境动态壁纸的小工"
++"具。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid ""
++"The duration of each picture and each transition can be set separately or "
++"globally. The wallpaper will fit the daylight if its total duration is "
++"exactly 24 hours."
++msgstr ""
++"您可以单独或统一设置每张图片的持续和过渡时长。总时长为 24 小时的壁纸集可以完"
++"全符合一天的日出日落。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "Version 3.0 greatly improves performances."
++msgstr "版本 3.0 极大地提升了性能。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "An editing history is now available to undo or redo your changes."
++msgstr "现已支持操作记录。可以撤销或重复更改操作。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid ""
++"This version now detects when it runs in a flatpak sandbox, and tells you "
++"when a feature isn't available because of it (instead of silently doing "
++"nothing)."
++msgstr ""
++"此版本现在会正确探测是否在 Flatpak 沙箱内运行。在 Flatpak 内不可用的功能现在"
++"将会弹出提示而不是静默失败。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid ""
++"The help manual has been updated to tell you workarounds about this problem."
++msgstr "此帮助文档已添加如何绕过此问题的方法。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "An new icon is available, following the recent GNOME guidelines."
++msgstr "遵循 GNOME 设计规范替换了应用程序新图标。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid ""
++"The images can now be reordered, previewed, or deleted using keyboard "
++"shortcuts."
++msgstr "现在可以使用键盘快捷键重新排序、预览或删除图像。"
++
++#. caption for screenshot 1
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "An example of a wallpaper changing with daylight"
++msgstr "示例：随日出日落切换的壁纸"
++
++#. caption for screenshot 2
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "The grid layout"
++msgstr "网格视图"
++
++#. That's my name, don't translate it
++#: data/com.github.maoschanz.DynamicWallpaperEditor.appdata.xml.in
++msgid "Romain F. T."
++msgstr "Romain F. T."
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.desktop.in
++msgid "Create or edit dynamic wallpapers for GNOME."
++msgstr "GNOME 动态壁纸创建与编辑。"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.desktop.in
++msgid "Wallpaper;Daylight;XML;"
++msgstr "壁纸;日照;XML;"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.desktop.in src/ui/menus.ui
++#: src/ui/shortcuts.ui
++msgid "New Window"
++msgstr "新建窗口"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.gschema.xml
++msgid "Use a grid or a list"
++msgstr "切换网格或列表"
++
++#: data/com.github.maoschanz.DynamicWallpaperEditor.gschema.xml
++msgid "Display the pictures using a grid of thumbnails, or a list."
++msgstr "使用网格或列表来显示图片。"
++
++#: src/ui/menus.ui
++msgid "List"
++msgstr "列表"
++
++#: src/ui/menus.ui
++msgid "Grid"
++msgstr "网格"
++
++#: src/ui/menus.ui
++msgid "Keyboard Shortcuts"
++msgstr "键盘快捷键"
++
++#: src/ui/menus.ui
++msgid "Help"
++msgstr "帮助"
++
++#: src/ui/menus.ui
++msgid "About"
++msgstr "关于"
++
++#: src/ui/menus.ui src/ui/shortcuts.ui src/window.py
++msgid "Save"
++msgstr "保存"
++
++#: src/ui/menus.ui src/ui/shortcuts.ui src/window.py
++msgid "Save as…"
++msgstr "保存到……"
++
++#: src/ui/menus.ui src/ui/shortcuts.ui
++msgid "Set as wallpaper"
++msgstr "设置为壁纸"
++
++#: src/ui/menus.ui
++msgid "Wallpaper adjustment"
++msgstr "壁纸排放"
++
++#: src/ui/menus.ui
++msgid "Mosaic"
++msgstr "排列"
++
++#: src/ui/menus.ui
++msgid "Centered"
++msgstr "居中"
++
++#: src/ui/menus.ui
++msgid "Scaled"
++msgstr "比例"
++
++#: src/ui/menus.ui
++msgid "Stretched"
++msgstr "拉伸"
++
++#: src/ui/menus.ui
++msgid "Zoom"
++msgstr "放大"
++
++#: src/ui/menus.ui
++msgid "Spanned"
++msgstr "跨显示器"
++
++#: src/ui/menus.ui
++msgid "Same duration for all pictures"
++msgstr "所有图片均使用相同时长"
++
++#: src/ui/menus.ui
++msgid "Fit the daylight"
++msgstr "贴合日出日落"
++
++#: src/ui/menus.ui
++msgid "Automatically set a total of 24 hours"
++msgstr "自动设置总时长为 24 小时"
++
++#: src/ui/menus.ui
++msgid "Use durations instead of times"
++msgstr "使用时长而不是时间点"
++
++#: src/ui/picture_menu.ui
++msgid "Replace with…"
++msgstr "替换为……"
++
++#: src/ui/picture_menu.ui src/ui/shortcuts.ui
++msgid "View picture"
++msgstr "查看图片"
++
++#: src/ui/picture_menu.ui
++msgid "View containing directory"
++msgstr "查看包含文件的文件夹"
++
++#: src/ui/picture_menu.ui
++msgid "Move to first position"
++msgstr "移动到第一张"
++
++#: src/ui/picture_menu.ui src/ui/shortcuts.ui
++msgid "Move up"
++msgstr "向上移动"
++
++#: src/ui/picture_menu.ui src/ui/shortcuts.ui
++msgid "Move down"
++msgstr "向下移动"
++
++#: src/ui/picture_menu.ui
++msgid "Move to last position"
++msgstr "移动到最后一张"
++
++#: src/ui/picture_row.ui src/ui/picture_thumbnail.ui src/ui/window.ui
++msgid "Time"
++msgstr "时间"
++
++#: src/ui/picture_row.ui src/ui/picture_thumbnail.ui
++msgid ""
++"Time (in seconds) of this image. This doesn't include the time of the "
++"transition."
++msgstr "此图片的展示秒数。不包括过渡效果。"
++
++#: src/ui/picture_row.ui src/ui/picture_thumbnail.ui src/ui/window.ui
++msgid "Transition"
++msgstr "过渡"
++
++#: src/ui/picture_row.ui src/ui/picture_thumbnail.ui
++msgid ""
++"Time (in seconds) of the transition between this image and the next one."
++msgstr "此图片到下一张图片之间的过渡效果持续秒数。"
++
++#: src/ui/picture_row.ui src/ui/picture_thumbnail.ui src/ui/shortcuts.ui
++msgid "Delete"
++msgstr "删除"
++
++#: src/ui/picture_thumbnail.ui
++msgid "Duration"
++msgstr "持续时长"
++
++#: src/ui/start_time.ui
++msgid "This is useful when the total duration is 24 hours."
++msgstr "当总时长设为 24 小时时此选项十分有用。"
++
++#: src/ui/start_time.ui
++msgid "Start time of the wallpaper"
++msgstr "壁纸的开始时间"
++
++#: src/ui/start_time.ui
++msgid "Year"
++msgstr "年"
++
++#: src/ui/start_time.ui
++msgid "Month"
++msgstr "月"
++
++#: src/ui/start_time.ui
++msgid "Day"
++msgstr "日"
++
++#: src/ui/start_time.ui
++msgid "Hour"
++msgstr "时"
++
++#: src/ui/start_time.ui
++msgid "Minute"
++msgstr "分"
++
++#: src/ui/start_time.ui
++msgid "Second"
++msgstr "秒"
++
++#: src/ui/shortcuts.ui
++msgid "General"
++msgstr "通用"
++
++#: src/ui/shortcuts.ui
++msgid "Close the current window"
++msgstr "关闭当前窗口"
++
++#: src/ui/shortcuts.ui
++msgid "Quit all windows"
++msgstr "关闭所有窗口"
++
++#: src/ui/shortcuts.ui
++msgid "Show shortcuts"
++msgstr "显示快捷键"
++
++#: src/ui/shortcuts.ui
++msgid "Show help"
++msgstr "显示帮助"
++
++#: src/ui/shortcuts.ui
++msgid "Wallpaper"
++msgstr "壁纸"
++
++#: src/ui/shortcuts.ui src/ui/window.ui
++msgid "Open an existing dynamic wallpaper"
++msgstr "打开现有的动态壁纸"
++
++#: src/ui/shortcuts.ui
++msgid "History"
++msgstr "历史"
++
++#: src/ui/shortcuts.ui src/ui/window.ui
++msgid "Undo"
++msgstr "撤销"
++
++#: src/ui/shortcuts.ui src/ui/window.ui
++msgid "Redo"
++msgstr "重做"
++
++#: src/ui/shortcuts.ui
++msgid "Pictures management"
++msgstr "图片管理"
++
++#: src/ui/shortcuts.ui src/ui/window.ui src/window.py
++msgid "Add pictures"
++msgstr "添加图片"
++
++#: src/ui/shortcuts.ui src/ui/window.ui src/window.py
++msgid "Add a folder"
++msgstr "添加文件夹"
++
++#: src/ui/shortcuts.ui src/ui/window.ui
++msgid "Find a picture"
++msgstr "查找图片"
++
++#: src/ui/shortcuts.ui
++msgid "Selected picture"
++msgstr "选中的图片"
++
++#: src/ui/window.ui src/window.py
++msgid "Open"
++msgstr "打开"
++
++#: src/ui/window.ui
++msgid "More actions"
++msgstr "更多操作"
++
++#: src/ui/window.ui
++msgid "Save the file and apply it as your wallpaper"
++msgstr "保存并设为壁纸"
++
++#: src/ui/window.ui
++msgid "Save and apply"
++msgstr "保存并应用"
++
++#: src/ui/window.ui
++msgid "Manage how you set the durations of your pictures"
++msgstr "管理图片显示时长的设置方法"
++
++#: src/ui/window.ui
++msgid "Durations options"
++msgstr "时长选项"
++
++#: src/ui/window.ui
++msgid "Set the exact start time of the wallpaper"
++msgstr "设置图片的固定开始时间"
++
++#: src/ui/window.ui
++msgid "Sort by name"
++msgstr "按名称排序"
++
++#: src/ui/window.ui
++msgid "Error starting the application, please report this bug."
++msgstr "无法启动程序。请提交缺陷报告。"
++
++#: src/ui/window.ui
++msgid "Automatic fix"
++msgstr "自动修复"
++
++#: src/ui/window.ui
++msgid "Set durations for a total of 24 hours"
++msgstr "设置总时长为 24 小时"
++
++#: src/ui/window.ui
++msgid "Duration of each picture (seconds)"
++msgstr "每张图片的放映时间（秒）"
++
++#: src/ui/window.ui
++msgid "Duration of each transition (seconds)"
++msgstr "每次过渡效果的持续时间（秒）"
++
++#: src/data_model.py src/window.py
++msgid "This dynamic wallpaper is corrupted"
++msgstr "此动态壁纸已损坏"
++
++#: src/data_model.py
++msgid "This XML file doesn't describe a valid dynamic wallpaper"
++msgstr "此 XML 文件不包含有效的动态壁纸"
++
++#: src/data_model.py
++#, python-format
++msgid "Unknown element: %s"
++msgstr "未知元素：%s"
++
++#: src/main.py
++msgid "Tell the version of the app"
++msgstr "显示此程序的版本"
++
++#: src/main.py
++msgid "Open a new window"
++msgstr "打开新窗口"
++
++#: src/main.py
++msgid "Error opening this file."
++msgstr "打开此文件时发生错误。"
++
++#: src/main.py
++#, python-format
++msgid "Did you mean %s ?"
++msgstr "您是否指的是 %s？"
++
++#: src/main.py
++msgid "Report bugs or ideas"
++msgstr "提交缺陷或新功能意见"
++
++#: src/main.py
++msgid "translator-credits"
++msgstr "Tianhao Chai, 2025"
++
++#: src/main.py
++msgid "This feature isn't available with Flatpak."
++msgstr "此功能在 Flatpak 下不可用。"
++
++#: src/main.py
++msgid ""
++"Don't worry, your XML file can still be set as your wallpaper from GNOME "
++"Tweaks."
++msgstr "您仍然可以使用 GNOME Tweaks 把您的 XML 文件设为壁纸。"
++
++#: src/main.py
++msgid "This desktop environment isn't supported."
++msgstr "不支持此桌面环境。"
++
++#: src/misc.py
++msgid "Dynamic wallpapers (XML)"
++msgstr "动态壁纸（XML）"
++
++#: src/misc.py
++msgid "All pictures"
++msgstr "所有图片"
++
++#: src/misc.py
++msgid "PNG images"
++msgstr "PNG 图像"
++
++#: src/misc.py
++msgid "JPEG images"
++msgstr "JPEG 图像"
++
++#: src/misc.py
++#, python-format
++msgid "%s hour"
++msgid_plural "%s hours"
++msgstr[0] "%s 小时"
++
++#: src/misc.py
++#, python-format
++msgid "%s minute"
++msgid_plural "%s minutes"
++msgstr[0] "%s 分钟"
++
++#: src/misc.py
++#, python-format
++msgid "%s second"
++msgid_plural "%s seconds"
++msgstr[0] "%s 秒"
++
++#: src/picture_widget.py
++msgid ""
++"This picture might exist, but it isn't in your home folder so I can't see it."
++msgstr "此图片可能存在，但由于它不位于您的家目录，此程序无法访问它。"
++
++#: src/picture_widget.py
++msgid "This picture doesn't exist"
++msgstr "此图片不存在"
++
++#: src/picture_widget.py
++#, python-brace-format
++msgid "This picture lasts from {0} to {1}"
++msgstr "此图片从 {0} 开始，到 {1} 结束"
++
++#: src/picture_widget.py
++#, python-brace-format
++msgid "The transition to the next picture lasts from {0} to {1}"
++msgstr "到下一张图片的过渡从 {0} 开始，到 {1} 结束"
++
++#: src/view.py
++msgid "Add new pictures, or open an existing XML file."
++msgstr "添加新图片或打开现有 XML 文件。"
++
++#: src/view.py
++msgid "Drag-and-drop pictures to reorder them."
++msgstr "拖拽图片以重新排序。"
++
++#: src/window.py
++#, python-format
++msgid "%s picture"
++msgid_plural "%s pictures"
++msgstr[0] "%s 张图片"
++
++#: src/window.py
++#, python-format
++msgid "Total time: %s second"
++msgid_plural "Total time: %s seconds"
++msgstr[0] "总时间：%s 秒"
++
++#: src/window.py
++msgid "The total duration isn't 24 hours."
++msgstr "总时长不是 24 小时。"
++
++#: src/window.py
++msgid "There are unsaved modifications to your wallpaper."
++msgstr "您的壁纸还有未保存的更改。"
++
++#: src/window.py
++#, python-format
++msgid "There are unsaved modifications to %s"
++msgstr "%s 还有未保存的更改"
++
++#: src/window.py
++msgid "Cancel"
++msgstr "取消"
++
++#: src/window.py
++msgid "Discard"
++msgstr "丢弃"
++
++#: src/window.py
++msgid "Loading…"
++msgstr "加载中……"
++
++#: src/window.py
++#, python-format
++msgid "Replace %s"
++msgstr "替换 %s"
++
++#: src/window.py
++msgid "Untitled"
++msgstr "无标题"
+-- 
+2.49.0
+
