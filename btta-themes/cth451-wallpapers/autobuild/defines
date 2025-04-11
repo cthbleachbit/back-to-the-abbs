@@ -1,0 +1,5 @@
+PKGNAME=cth451-wallpapers
+PKGSEC=graphics
+PKGDES="cth451's random wallpapers"
+
+ABHOST=noarch

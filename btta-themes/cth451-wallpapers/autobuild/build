@@ -1,0 +1,4 @@
+for i in sets/*; do
+  ./generator/main.py -m "$i" -p '/usr' -o "${PKGDIR}/"
+done
+
