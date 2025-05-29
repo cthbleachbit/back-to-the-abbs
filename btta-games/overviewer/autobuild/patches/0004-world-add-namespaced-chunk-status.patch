@@ -1,7 +1,7 @@
 From 4e909e591874ca689a44b26f83144bd9703208dd Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Thu, 29 May 2025 02:52:29 -0400
-Subject: [PATCH] world: add namespaced chunk status
+Subject: [PATCH 4/6] world: add namespaced chunk status
 
 ---
  overviewer_core/world.py | 35 +++++++++++++++++++----------------
@@ -108,5 +108,5 @@ index 0fd3f79..4d633b4 100644
          # Turn the Biomes array into a 16x16 numpy array
          if 'Biomes' in chunk_data and len(chunk_data['Biomes']) > 0:
 -- 
-2.49.0
+2.50.1
 

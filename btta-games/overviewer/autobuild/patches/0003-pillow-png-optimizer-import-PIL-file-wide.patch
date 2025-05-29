@@ -1,7 +1,7 @@
 From 38cc5eab355054e9a625e928521391436913e7fd Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Tue, 27 Sep 2022 18:31:05 -0400
-Subject: [PATCH] pillow png optimizer: import PIL file-wide
+Subject: [PATCH 3/6] pillow png optimizer: import PIL file-wide
 
 For some reason PIL is not part of requirements.txt, but seems to be
 assumed to exist in other parts of Overviewer. Programmatically imported
@@ -53,5 +53,5 @@ index cb92529..6912a7b 100644
      def is_crusher(self):
          return True
 -- 
-2.49.0
+2.50.1
 

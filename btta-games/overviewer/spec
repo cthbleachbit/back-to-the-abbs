@@ -1,5 +1,6 @@
 _MAJ_MIN=0.19
 _PATCH=10
 VER=${_MAJ_MIN}.${_PATCH}
+REL=1
 SRCS="tbl::https://overviewer.org/~pillow/up/013efcfd21/overviewer-${VER}.tar.gz"
 CHKSUMS="sha256::eab4c1ac50647bb6d80385d7ed4b02293aae73fcc9df02bb06af0784dbc20925"

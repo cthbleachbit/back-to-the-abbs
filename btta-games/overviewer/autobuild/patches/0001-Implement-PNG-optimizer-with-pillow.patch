@@ -1,7 +1,7 @@
 From 3a9264239d0fd423ba83578bf7aacba9d693c65f Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Tue, 27 Sep 2022 13:27:45 -0400
-Subject: [PATCH] Implement PNG optimizer with pillow
+Subject: [PATCH 1/6] Implement PNG optimizer with pillow
 
 Currently all Image optmizers will fork/exec on an external program for
 every single image tile generated from dispatcher. This drags the
@@ -80,5 +80,5 @@ index 78def0e..dce00fc 100644
  import sys
  
 -- 
-2.49.0
+2.50.1
 
