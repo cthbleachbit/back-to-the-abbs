@@ -1,8 +1,8 @@
-From 6e0a02ec913b7999cdd6e5cbb62d7e4a0af6e9f2 Mon Sep 17 00:00:00 2001
+From d8a7c1bee135e21db569d6935d0d86329e0f8fc0 Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Tue, 27 Sep 2022 17:20:56 -0400
-Subject: [PATCH 2/3] pillow png optimizer: use sane default options, 256 color
- + dithering
+Subject: [PATCH] pillow png optimizer: use sane default options, 256 color +
+ dithering
 
 ---
  overviewer_core/optimizeimages.py | 2 +-
@@ -22,5 +22,5 @@ index ae42c35..cb92529 100644
              raise Exception("You can't use less than 2 colors")
          self.colors = colors
 -- 
-2.37.1
+2.49.0
 
