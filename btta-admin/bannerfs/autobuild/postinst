@@ -1,2 +1,5 @@
-echo "Creating temporary directory for bannerfs ..."
-systemd-tmpfiles --create bannerfs.conf
+echo "Creating temporary directory for bannerfs..."
+systemd-tmpfiles --create bannerfs.conf || true
+
+echo "Reloading systemd units..."
+systemctl daemon-reload || true

@@ -1,3 +1,3 @@
 VER=0.0.1
-SRCS="git::commit=1915a50d54ff1bf9bbc8fc8fde317b70a3ae9e49::https://git.cth451.me/cth451/dynamic-ssh-banner.git"
+SRCS="git::commit=tags/${VER}::https://git.cth451.me/cth451/dynamic-ssh-banner.git"
 CHKSUMS="SKIP"
