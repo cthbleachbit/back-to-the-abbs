@@ -1,0 +1,2 @@
+echo "Creating temporary directory for bannerfs ..."
+systemd-tmpfiles --create bannerfs.conf

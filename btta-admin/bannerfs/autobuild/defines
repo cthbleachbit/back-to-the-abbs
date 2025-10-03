@@ -1,0 +1,6 @@
+PKGNAME=dynamic-ssh-banner
+PKGSEC=admin
+PKGDEP="fuse-3 spdlog pkg-config"
+PKGDES="FUSE-based ssh banner randomizer"
+
+ABTYPE=cmakeninja
