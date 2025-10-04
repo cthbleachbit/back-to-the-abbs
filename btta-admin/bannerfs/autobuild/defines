@@ -1,4 +1,4 @@
-PKGNAME=dynamic-ssh-banner
+PKGNAME=bannerfs
 PKGSEC=admin
 PKGDEP="fuse-3 spdlog pkg-config"
 PKGDES="FUSE-based ssh banner randomizer"
