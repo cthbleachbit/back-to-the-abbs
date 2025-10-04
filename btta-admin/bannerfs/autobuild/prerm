@@ -1,0 +1,2 @@
+echo "Stopping bannerfs service..."
+systemctl disable bannerfs --now || true

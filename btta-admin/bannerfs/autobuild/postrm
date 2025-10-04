@@ -1,0 +1,2 @@
+echo "Reloading systemd units..."
+systemctl daemon-reload
