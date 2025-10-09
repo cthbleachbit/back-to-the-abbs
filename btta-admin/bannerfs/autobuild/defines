@@ -4,3 +4,6 @@ PKGDEP="fuse-3 spdlog pkg-config"
 PKGDES="FUSE-based ssh banner randomizer"
 
 ABTYPE=cmakeninja
+CMAKE_AFTER=(
+	-DCMAKE_INSTALL_SYSCONFDIR=/etc
+)
