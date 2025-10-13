@@ -1,0 +1,4 @@
+VER=4.23.0+1
+SRCS="tbl::https://github.com/Mellanox/mstflint/releases/download/v${VER/+/-}/mstflint-${VER/+/-}.tar.gz"
+CHKSUMS="sha256::c08bcb8428647165bba744ba472d4995ebb2ac1f402df37c2713ec1a77ff2e9a"
+CHKUPDATE="anitya::id=13357"

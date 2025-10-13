@@ -1,0 +1,71 @@
+From b672b621dc20893cc0f9a96ac548603a2b273cfb Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Thu, 14 Sep 2023 02:00:39 +0000
+Subject: [PATCH 2/3] hardware support: linux on loongarch64
+
+---
+ common/compatibility.h         | 4 +++-
+ mtcr_ul/packets_common.h       | 2 ++
+ tools_layouts/adb_to_c_utils.h | 4 +++-
+ 3 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/common/compatibility.h b/common/compatibility.h
+index e5991c28..e25a0b46 100644
+--- a/common/compatibility.h
++++ b/common/compatibility.h
+@@ -69,6 +69,8 @@
+ #define ARCH_arm6l
+ #elif defined(__riscv)
+ #define ARCH_riscv
++#elif defined(__loongarch_lp64)
++#define ARCH_loongarch64
+ #else
+ #error Unknown CPU architecture using the linux OS
+ #endif
+@@ -116,7 +118,7 @@
+ #define U48H_FMT "0x%012llx"
+ #define U64D_FMT_GEN "llu"
+ #endif
+-#elif defined(ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_riscv)
++#elif defined(ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_riscv) || defined(ARCH_loongarch64)
+ #define U64D_FMT "%lu"
+ #define U64H_FMT "0x%016lx"
+ #define U48H_FMT "0x%012lx"
+diff --git a/mtcr_ul/packets_common.h b/mtcr_ul/packets_common.h
+index 2ab255fc..8f73a022 100644
+--- a/mtcr_ul/packets_common.h
++++ b/mtcr_ul/packets_common.h
+@@ -152,6 +152,8 @@
+ #define ARCH_arm6l
+ #elif defined(__riscv)
+ #define ARCH_riscv
++#elif defined(__loongarch_lp64)
++#define ARCH_loongarch64
+ #else
+ #error Unknown CPU architecture using the linux OS
+ #endif
+diff --git a/tools_layouts/adb_to_c_utils.h b/tools_layouts/adb_to_c_utils.h
+index 720ed1c6..9037ee1d 100644
+--- a/tools_layouts/adb_to_c_utils.h
++++ b/tools_layouts/adb_to_c_utils.h
+@@ -146,6 +146,8 @@ extern "C"
+ #define ARCH_arm6l
+ #elif defined(__riscv)
+ #define ARCH_riscv
++#elif defined(__loongarch_lp64)
++#define ARCH_loongarch64
+ #else
+ #error Unknown CPU architecture using the linux OS
+ #endif
+@@ -188,7 +190,7 @@ extern "C"
+ #define U64H_FMT "0x%016llx"
+ #define U48H_FMT "0x%012llx"
+ #endif
+-#elif defined(ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_riscv)
++#elif defined(ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_riscv) || defined(ARCH_loongarch64)
+ #define U64D_FMT "%lu"
+ #define U64H_FMT "0x%016lx"
+ #define U48H_FMT "0x%012lx"
+-- 
+2.51.0
+

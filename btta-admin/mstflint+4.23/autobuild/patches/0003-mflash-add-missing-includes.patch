@@ -1,0 +1,42 @@
+From fe6292c288feb88f865fb8fadde6e79bb89e8e64 Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Mon, 13 Oct 2025 12:18:18 -0400
+Subject: [PATCH 3/3] mflash: add missing includes
+
+---
+ mflash/mflash_gw.c     | 3 +++
+ mflash/mflash_new_gw.c | 4 ++++
+ 2 files changed, 7 insertions(+)
+
+diff --git a/mflash/mflash_gw.c b/mflash/mflash_gw.c
+index f296700d..c0a93bd9 100644
+--- a/mflash/mflash_gw.c
++++ b/mflash/mflash_gw.c
+@@ -38,6 +38,9 @@
+  *  Created on: Jul 8, 2020
+  *      Author: edwardg
+  */
++#include <unistd.h>
++#include <stdlib.h>
++
+ #include "mflash_pack_layer.h"
+ #include "mflash_dev_capability.h"
+ #include "mflash_access_layer.h"
+diff --git a/mflash/mflash_new_gw.c b/mflash/mflash_new_gw.c
+index 3bd044ea..498f0021 100644
+--- a/mflash/mflash_new_gw.c
++++ b/mflash/mflash_new_gw.c
+@@ -38,6 +38,10 @@
+  *  Created on: Jul 8, 2020
+  *      Author: edwardg
+  */
++#include <unistd.h>
++#include <stdlib.h>
++
++#include "bit_slice.h"
+ #include "mflash_pack_layer.h"
+ #include "mflash_dev_capability.h"
+ #include "mflash_access_layer.h"
+-- 
+2.51.0
+

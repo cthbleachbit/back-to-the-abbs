@@ -1,0 +1,22 @@
+PKGNAME=mstflint+4.23
+PKGSEC=admin
+PKGDEP="python-3 sqlite rdma-core"
+PKGDES="OpenFabrics Firmware Utility for Mellanox HCA/NIC"
+
+ABSHADOW=0
+# No upstream support
+FAIL_ARCH="loongson3"
+
+_PREFIX=/opt/mstflint-4.23
+AUTOTOOLS_AFTER=(
+	--prefix="${_PREFIX}"
+	--exec-prefix="${_PREFIX}"
+	--bindir="/usr/bin"
+	--sbindir="/usr/bin"
+	--libexecdir="${_PREFIX}/libexec"
+	--sysconfdir="${_PREFIX}/etc"
+	--libdir="${_PREFIX}/lib"
+	--includedir="${_PREFIX}/include"
+	--datarootdir="${_PREFIX}/share"
+	--program-suffix=-4.23
+)
