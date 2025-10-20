@@ -1,6 +1,6 @@
 PKGNAME=bannerfs
 PKGSEC=admin
-PKGDEP="fuse-3 spdlog pkg-config"
+PKGDEP="fuse-3 spdlog pkg-config icu"
 PKGDES="FUSE-based ssh banner randomizer"
 
 ABTYPE=cmakeninja
