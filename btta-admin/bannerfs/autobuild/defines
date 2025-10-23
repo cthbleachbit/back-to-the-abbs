@@ -6,4 +6,5 @@ PKGDES="FUSE-based ssh banner randomizer"
 ABTYPE=cmakeninja
 CMAKE_AFTER=(
 	-DCMAKE_INSTALL_SYSCONFDIR=/etc
+	-DBANNERFS_BUILD_TESTS=OFF
 )
