@@ -1,3 +1,4 @@
 VER=0.5.6
-SRCTBL="https://github.com/cthbleachbit/minemap/archive/v${VER}.tar.gz"
-CHKSUM="sha256::cf8b8a26a20442107b3f0c8a4073b79c8ec7fc69068c520e90655a9e470b6842"
+REL=1
+SRCS="git::commit=tags/v${VER}::https://github.com/cthbleachbit/minemap.git"
+CHKSUMS="SKIP"
