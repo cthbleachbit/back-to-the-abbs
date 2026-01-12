@@ -1,0 +1,7 @@
+PKGNAME=at-sysusers
+PKGSEC=admin
+PKGDEP="systemd"
+PKGDES="Sysusers for AT delayed scheduling daemon"
+
+ABHOST=noarch
+ABTYPE=dummy
