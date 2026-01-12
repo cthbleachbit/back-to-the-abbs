@@ -1,0 +1,15 @@
+PKGNAME=at
+PKGSEC=admin
+PKGDEP="linux-pam flex"
+# Just to have a sendmail program
+BUILDDEP="exim"
+PKGDES="AT and batch delayed command scheduling utility and daemon"
+
+AUTOTOOLS_AFTER=(
+	--with-jobdir=/var/spool/atd
+	--with-atspool=/var/spool/atd
+	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	--with-daemon_username=root
+	--with-daemon_groupname=root
+)
+ABSHADOW=0

@@ -1,0 +1,4 @@
+abinfo "Fix doc dir..."
+mkdir -p "$PKGDIR"/usr/share/doc
+mv -v "$PKGDIR"/usr/doc/at "$PKGDIR"/usr/share/doc/at
+rmdir "$PKGDIR"/usr/doc

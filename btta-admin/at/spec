@@ -1,0 +1,3 @@
+VER=3.2.5
+SRCS="git::commit=tags/release/${VER}::https://salsa.debian.org/debian/at.git"
+CHKSUMS="SKIP"
