@@ -1,0 +1,10 @@
+mkdir -p /var/spool/atd
+chown -v atd:atd /var/spool/atd
+chmod -v 1770 /var/spool/atd
+
+touch /var/spool/atd/.SEQ
+chown -v atd:atd /var/spool/atd/.SEQ
+chmod -v 600 /var/spool/atd/.SEQ
+
+chown -v atd:atd /usr/bin/at
+chmod -v 6755 /usr/bin/at

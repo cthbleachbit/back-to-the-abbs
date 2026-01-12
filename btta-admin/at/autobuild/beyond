@@ -2,3 +2,6 @@ abinfo "Fix doc dir..."
 mkdir -p "$PKGDIR"/usr/share/doc
 mv -v "$PKGDIR"/usr/doc/at "$PKGDIR"/usr/share/doc/at
 rmdir "$PKGDIR"/usr/doc
+
+abinfo "Remove pack-in spool directory (Directory handled by at-sysusers and .SEQ by postinst)"
+rm -rv "$PKGDIR"/var/spool/atd
