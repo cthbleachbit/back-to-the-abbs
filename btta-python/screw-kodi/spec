@@ -1,3 +1,4 @@
 VER=0.0.8
+REL=1
 SRCS="tbl::https://git.cth451.me/cth451/screw-kodi/-/archive/v${VER}/screw-kodi-v${VER}.tar.gz"
 CHKSUMS="sha256::f14a253d8b4f22c612c79745583647cc8336daf8474518ea24da35623dba34ed"

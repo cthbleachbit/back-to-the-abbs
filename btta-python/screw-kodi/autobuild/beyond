@@ -1,0 +1,6 @@
+(
+cd $PKGDIR
+mkdir -vp ./usr/bin
+mv -v ./usr/lib/bin/screw-kodi-link ./usr/bin
+rmdir -v ./usr/lib/bin
+)
