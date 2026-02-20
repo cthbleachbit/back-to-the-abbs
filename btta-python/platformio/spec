@@ -1,4 +1,4 @@
-VER=6.1.15
+VER=6.1.19
 SRCS="tbl::https://pypi.io/packages/source/p/platformio/platformio-$VER.tar.gz"
-CHKSUMS="sha256::d3209a60d40340fdbab2c76ee23303d90e5ecea0a11f92980c9d2068d0975fde"
+CHKSUMS="sha256::7b53eaa36fcba554411b669eab845626da7c4b90fa6aaee9fe9f1875d82f5f54"
 CHKUPDATE="anitya::id=39637"
