@@ -1,7 +1,7 @@
 From f56286d79e3cf51d0f7b1c6f227b11680b8c1dcf Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Fri, 18 Jul 2025 13:00:35 -0400
-Subject: [PATCH 5/6] world: fix parse errors interpreting negative int64_t as
+Subject: [PATCH] world: fix parse errors interpreting negative int64_t as
  uint64_t
 
 ---
@@ -37,5 +37,5 @@ index 4d633b4..47ec6a3 100644
          shorts_per_long = 64 // bits_per_value
          mask = (1 << bits_per_value) - 1
 -- 
-2.50.1
+2.52.0
 
