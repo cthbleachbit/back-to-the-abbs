@@ -2,4 +2,7 @@ PKGNAME=nbtp
 PKGSEC=libs
 PKGDES="NBT Parser Library in C++"
 PKGDEP="glibc fmt python-3"
-BUILDDEP="pybind11"
+
+CMAKE_AFTER=(
+	-DPython_INCLUDE_DIR=/usr/include/python${ABPY3VER}
+)

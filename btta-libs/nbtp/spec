@@ -1,4 +1,4 @@
 VER=0.6.1
 REL=2
-SRCS="tbl::https://git.cth451.me/cth451/nbtp/-/archive/v${VER}/nbtp-v${VER}.tar.gz"
-CHKSUMS="sha256::88d984e696ab27009a273c56a008f8d4110612754f0af53bce7696c6026298b6"
+SRCS="git::commit=d2c872e353ab3b3a3d0cd81d7666c68cae93e2e3::https://git.cth451.me/cth451/nbtp.git"
+CHKSUMS="SKIP"
