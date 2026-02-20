@@ -5,4 +5,5 @@ PKGDEP="glibc fmt python-3"
 
 CMAKE_AFTER=(
 	-DPython_INCLUDE_DIR=/usr/include/python${ABPY3VER}
+	-DNBTP_WITH_SYSTEM_PYBIND11=OFF
 )
