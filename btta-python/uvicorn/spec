@@ -1,4 +1,4 @@
-VER=0.30.1
+VER=0.41.0
 SRCS="tbl::https://pypi.io/packages/source/u/uvicorn/uvicorn-$VER.tar.gz"
-CHKSUMS="sha256::d46cd8e0fd80240baffbcd9ec1012a712938754afcf81bce56c024c1656aece8"
+CHKSUMS="sha256::09d11cf7008da33113824ee5a1c6422d89fbc2ff476540d69a34c87fab8b571a"
 CHKUPDATE="anitya::id=28526"
