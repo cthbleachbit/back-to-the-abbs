@@ -1,4 +1,4 @@
-VER=0.37.2
+VER=0.52.1
 SRCS="tbl::https://pypi.io/packages/source/s/starlette/starlette-$VER.tar.gz"
-CHKSUMS="sha256::9af890290133b79fc3db55474ade20f6220a364a0402e0b556e7cd5e1e093823"
+CHKSUMS="sha256::834edd1b0a23167694292e94f597773bc3f89f362be6effee198165a35d62933"
 CHKUPDATE="anitya::id=36570"
