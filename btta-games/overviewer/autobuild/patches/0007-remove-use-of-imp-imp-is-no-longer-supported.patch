@@ -1,12 +1,34 @@
-From 0af082ce383d2bdb4f65e2962fbb9b55005a6c36 Mon Sep 17 00:00:00 2001
+From f7cad92f4e1bdaf51ece4b46a4a0c865706fb80e Mon Sep 17 00:00:00 2001
 From: Tianhao Chai <cth451@gmail.com>
 Date: Fri, 20 Feb 2026 00:55:32 -0500
 Subject: [PATCH] remove use of imp - imp is no longer supported
 
 ---
- overviewer_core/util.py | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ overviewer_core/textures.py | 3 +--
+ overviewer_core/util.py     | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
+diff --git a/overviewer_core/textures.py b/overviewer_core/textures.py
+index b809d24..f19f9dc 100644
+--- a/overviewer_core/textures.py
++++ b/overviewer_core/textures.py
+@@ -15,7 +15,6 @@
+ 
+ from collections import OrderedDict
+ import sys
+-import imp
+ import os
+ import os.path
+ import zipfile
+@@ -197,7 +196,7 @@ class Textures(object):
+         if os.path.isfile(path):
+             if verbose: logging.info("Found %s in '%s'", filename, path)
+             return open(path, mode)
+-        elif hasattr(sys, "frozen") or imp.is_frozen("__main__"):
++        elif hasattr(sys, "frozen"):
+             # windows special case, when the package dir doesn't exist
+             path = os.path.join(programdir, "textures", filename)
+             if os.path.isfile(path):
 diff --git a/overviewer_core/util.py b/overviewer_core/util.py
 index 403cbcd..0318cee 100644
 --- a/overviewer_core/util.py

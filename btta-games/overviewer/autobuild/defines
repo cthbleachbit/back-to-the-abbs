@@ -3,4 +3,5 @@ PKGSEC=utils
 PKGDEP="pillow numpy pngnq-s9"
 PKGDES="high-resolution Minecraft world renderer"
 
+ABTYPE=pep517
 NOPYTHON2=1

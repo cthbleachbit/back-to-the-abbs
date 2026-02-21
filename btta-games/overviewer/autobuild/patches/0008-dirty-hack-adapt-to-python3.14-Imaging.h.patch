@@ -1,0 +1,113 @@
+From 056d818e37236e8f56495ae86a71ba7f4ae3ad41 Mon Sep 17 00:00:00 2001
+From: Tianhao Chai <cth451@gmail.com>
+Date: Sat, 21 Feb 2026 01:18:42 -0500
+Subject: [PATCH] dirty hack: adapt to python3.14 Imaging.h
+
+---
+ overviewer_core/src/Draw.c      |  4 +++-
+ overviewer_core/src/composite.c | 16 ++++++++--------
+ setup.py                        |  4 ++--
+ 3 files changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/overviewer_core/src/Draw.c b/overviewer_core/src/Draw.c
+index 482f4a7..0b3318b 100644
+--- a/overviewer_core/src/Draw.c
++++ b/overviewer_core/src/Draw.c
+@@ -659,8 +659,10 @@ int32_t ImagingDrawLine(Imaging im, int32_t x0, int32_t y0, int32_t x1, int32_t
+     return 0;
+ }
+ 
++// FIXME: python3.14 Imaging.h
++//        Additional unused argument `mask`.
+ int32_t ImagingDrawWideLine(Imaging im, int32_t x0, int32_t y0, int32_t x1, int32_t y1,
+-                            const void* ink_, int32_t width, int32_t op) {
++                            const void* ink_, int32_t width, int32_t op, Imaging mask) {
+     DRAW* draw;
+     INT32 ink;
+ 
+diff --git a/overviewer_core/src/composite.c b/overviewer_core/src/composite.c
+index 47e3afe..47f1c2d 100644
+--- a/overviewer_core/src/composite.c
++++ b/overviewer_core/src/composite.c
+@@ -132,19 +132,19 @@ alpha_over_full(PyObject* dest, PyObject* src, PyObject* mask, float overall_alp
+         return NULL;
+ 
+     /* check the various image modes, make sure they make sense */
+-    if (strcmp(imDest->mode, "RGBA") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given destination image does not have mode \"RGBA\"");
+         return NULL;
+     }
+ 
+-    if (strcmp(imSrc->mode, "RGBA") != 0 && strcmp(imSrc->mode, "RGB") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA && imDest->mode != IMAGING_MODE_RGB) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given source image does not have mode \"RGBA\" or \"RGB\"");
+         return NULL;
+     }
+ 
+-    if (strcmp(imMask->mode, "RGBA") != 0 && strcmp(imMask->mode, "L") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA && imDest->mode != IMAGING_MODE_L) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given mask image does not have mode \"RGBA\" or \"L\"");
+         return NULL;
+@@ -301,13 +301,13 @@ tint_with_mask(PyObject* dest,
+         return NULL;
+ 
+     /* check the various image modes, make sure they make sense */
+-    if (strcmp(imDest->mode, "RGBA") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given destination image does not have mode \"RGBA\"");
+         return NULL;
+     }
+ 
+-    if (strcmp(imMask->mode, "RGBA") != 0 && strcmp(imMask->mode, "L") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA && imDest->mode != IMAGING_MODE_L) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given mask image does not have mode \"RGBA\" or \"L\"");
+         return NULL;
+@@ -406,7 +406,7 @@ draw_triangle(PyObject* dest, int32_t inclusive,
+         return NULL;
+ 
+     /* check the various image modes, make sure they make sense */
+-    if (strcmp(imDest->mode, "RGBA") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given destination image does not have mode \"RGBA\"");
+         return NULL;
+@@ -527,13 +527,13 @@ resize_half(PyObject* dest, PyObject* src) {
+         return NULL;
+ 
+     /* check the various image modes, make sure they make sense */
+-    if (strcmp(imDest->mode, "RGBA") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given destination image does not have mode \"RGBA\"");
+         return NULL;
+     }
+ 
+-    if (strcmp(imSrc->mode, "RGBA") != 0 && strcmp(imSrc->mode, "RGB") != 0) {
++    if (imDest->mode != IMAGING_MODE_RGBA && imDest->mode != IMAGING_MODE_RGB) {
+         PyErr_SetString(PyExc_ValueError,
+                         "given source image does not have mode \"RGBA\" or \"RGB\"");
+         return NULL;
+diff --git a/setup.py b/setup.py
+index 47ab8a7..26a6158 100755
+--- a/setup.py
++++ b/setup.py
+@@ -5,8 +5,8 @@ import traceback
+ 
+ 
+ # quick version check
+-if sys.version_info[0] == 2 or (sys.version_info[0] == 3 and sys.version_info[1] < 4):
+-    print("Sorry, the Overviewer requires at least Python 3.4 to run.")
++if sys.version_info[0] == 2 or (sys.version_info[0] == 3 and sys.version_info[1] < 14):
++    print("Sorry, the Overviewer requires at least Python 3.14 to run.")
+     sys.exit(1)
+ 
+ 
+-- 
+2.52.0
+
