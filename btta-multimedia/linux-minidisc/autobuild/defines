@@ -1,0 +1,4 @@
+PKGNAME=linux-minidisc
+PKGSEC=sound
+PKGDEP="glib libgcrypt libusb taglib libmad libid3tag qt-5 zlib gcc-runtime"
+PKGDES="Free software for accessing MiniDisc devices"

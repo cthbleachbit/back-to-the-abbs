@@ -1,0 +1,4 @@
+VER="0.9.16+git20220711"
+COMMIT="2b82dd76270a74c143b6acaeb8e88ddd6035cf7d"
+SRCS="git::commit=${COMMIT}::https://github.com/linux-minidisc/linux-minidisc.git"
+CHKSUMS="SKIP"

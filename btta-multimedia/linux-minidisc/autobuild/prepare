@@ -1,0 +1,7 @@
+abinfo "Making libhimd and libnetmd shared libraries"
+for i in libhimd libnetmd; do
+	sed -i "${i}/${i}.pro" -e "s/staticlib//g"
+done
+
+abinfo "Setting correct dependency for netmdcli"
+echo 'include(../build/libgcrypt.pri)' >> netmdcli/netmdcli.pro

@@ -1,0 +1,19 @@
+abinfo "Installing udev rules"
+install -dvm755 "${PKGDIR}/usr/lib/udev/rules.d"
+install -vm644 netmd/etc/netmd.rules "${PKGDIR}/usr/lib/udev/rules.d/90-netmd.rules"
+
+abinfo "Installing libhimd and libnetmd libraries and headers"
+for COMPONENT in libhimd libnetmd; do
+	install -dvm755 "${PKGDIR}/usr/include/${COMPONENT}"
+	for LIB in "${COMPONENT}"/*.so* ; do
+		cp -v -P "${LIB}" ${PKGDIR}/usr/lib
+	done
+	for HEADER in ${COMPONENT}/*.h; do
+		install -Dvm644 ${HEADER} -t ${PKGDIR}/usr/include/${COMPONENT}/
+	done
+done
+
+abinfo "Installing manpages"
+for MAN in docs/*.1; do
+	install -Dvm644 "${MAN}" -t "${PKGDIR}/usr/share/man/man1"
+done
