@@ -1,0 +1,10 @@
+PKGNAME=gnucash
+PKGSEC=doc
+PKGDEP="gtk-3 glib guile libxml2 libxslt icu boost webkit2gtk libdbi libdbi-drivers zlib python-3 libsecret"
+BUILDDEP="gettext swig doxygen gtest"
+PKGDES="GnuCash Double-Entry Accounting Program"
+
+CMAKE_AFTER=(
+	"-DWITH_AQBANKING=OFF"
+	"-DWITH_OFX=OFF"
+)

@@ -1,0 +1,2 @@
+abinfo "Remove gnucash-valgrind"
+rm -vf "${PKGDIR}/usr/bin/gnucash-valgrind"

@@ -1,0 +1,2 @@
+abinfo "Install wants a ChangeLog..."
+echo > "${SRCDIR}"/ChangeLog
